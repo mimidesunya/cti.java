@@ -78,13 +78,13 @@ build.dependsOn fullJar, minJar
 
 publishing {
     publications {
-            artifact sourcesJar
-            artifact javadocJar
         mavenJava(MavenPublication) {
             artifact fullJar
             artifact(minJar) {
                 classifier = 'min'
             }
+            artifact sourcesJar
+            artifact javadocJar
         }
     }
 }

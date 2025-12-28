@@ -1,0 +1,810 @@
+<?xml version="1.0"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cssj="http://www.cssj.jp/ns/cssjml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+@page {
+	margin: 25mm 21.5mm 30mm 21.5mm;
+}
+
+@page :left {
+	margin: 25mm 25mm 30mm 18mm;
+}
+
+@page :right {
+	margin: 25mm 18mm 30mm 25mm;
+}
+
+/* 全体 */
+body {
+	line-height: 1.2;
+	font-size: 10.5pt;
+	font-family: serif;
+	text-align: justify;
+	orphans: 2;
+	windows: 3;
+}
+
+p,ul,ol {
+	margin-left: 20mm;
+}
+
+b,strong {
+	font-family: sans-serif;
+}
+
+pre {
+	font-family: 'Courier' monospace;
+}
+
+tt {
+	white-space: nowrap;
+}
+
+@media screen {
+	.for-print {
+		display: none;
+	}
+}
+
+@media print {
+	.for-screen {
+		display: none;
+	}
+	a.pageref:after,.pageref a:after {
+		content: ' (' -cssj-page-ref(attr(href), page ) 'ページ)';
+	}
+}
+
+/* 見出し */
+h1,h2,h3,h4,h5,h6 {
+	font-family: sans-serif;
+}
+
+h1 {
+	font-size: 24pt;
+}
+
+h2 {
+	padding-bottom: 4pt;
+	border-bottom: 2pt solid Black;
+	font-size: 16pt;
+}
+
+h3 {
+	padding-bottom: 4pt;
+	border-bottom: 1pt solid Black;
+}
+
+h3,h4,h5,h6 {
+	margin-left: 20mm;
+	font-size: 12pt;
+}
+
+@media print {
+	h1:before {
+		content: counter(chapter) '.';
+		counter-increment: chapter;
+		counter-reset: section subsection example table;
+	}
+	h2:before {
+		content: counter(chapter) '.' counter(section) '\A0';
+		counter-increment: section;
+		counter-reset: subsection;
+	}
+	h3:before {
+		content: counter(chapter) '.' counter(section) '.' counter(subsection)
+			'\A0';
+		counter-increment: subsection;
+	}
+}
+
+/* リスト */
+ul {
+	margin: 1em 0 1em 20mm;
+}
+
+ul>li {
+	list-style-type: square;
+	list-style-position: inside;
+}
+
+dl {
+	border-left: 2px solid Black;
+	padding-left: 5px;
+}
+
+dt {
+	font-weight: bold;
+	font-family: sans-serif;
+	white-space: nowrap;
+	margin: 1em 0 0 0;
+}
+
+dd {
+	margin: 0 0 0 20mm;
+}
+
+/* テーブル */
+caption {
+	font-size: 10pt;
+	font-weight: bold;
+	font-family: sans-serif;
+	white-space: nowrap;
+	text-align: left;
+	margin: 1em 0 4pt 0;
+}
+
+table {
+	border-collapse: collapse;
+	margin-bottom: 1em;
+}
+
+th,td {
+	padding: 4pt;
+	border: 1pt solid Black;
+	text-align: justify;
+	font-size: 10pt;
+}
+
+thead {
+	font-weight: bold;
+	font-family: sans-serif;
+	white-space: nowrap;
+	border-top: 1pt solid Black;
+	border-bottom: 1pt solid Black;
+	background-color: #CCCCCC;
+}
+
+td.nowrap {
+	white-space: nowrap;
+}
+
+tr {
+	page-break-inside: avoid;
+}
+
+@media print {
+	caption:before {
+		counter-increment: table;
+		content: '表 ' counter(chapter) '.' counter(table) ' ';
+	}
+}
+
+/* 例 */
+div.example pre {
+	white-space: pre-wrap;
+	font-size: 10pt;
+	margin: 0 0 1em 20mm;
+	windows: 10;
+	orphans: 10;
+	background-color: #DDDDDD;
+}
+
+/* 図 */
+div.figure {
+	page-break-inside: avoid;
+	margin: 5px auto;
+}
+
+div.figure>* {
+	display: block;
+	border: 1px solid Black;
+	margin: 5px auto;
+	padding: 5px;
+}
+
+div.figure:before,div.example:before {
+	border-bottom: 1pt solid Black;
+	padding-left: 5em;
+	font: bold 10pt/ 1.6 sans-serif;
+	white-space: nowrap;
+}
+
+div.figure *,div.example * {
+	page-break-before: avoid;
+}
+
+@media print {
+	div.example:before {
+		counter-increment: example;
+		content: '例 ' counter(chapter) '.' counter(example) ' ' attr(title);
+	}
+	div.figure:before {
+		counter-increment: figure;
+		content: '図 ' counter(chapter) '.' counter(figure) ' ' attr(title);
+	}
+}
+
+@media screen {
+	div.example:before {
+		content: '例 ' attr(title);
+	}
+	div.figure:before {
+		content: '図 ' attr(title);
+	}
+}
+
+/* 注意 */
+.note {
+	font-family: sans-serif;
+	padding: 1em;
+	border: 3px solid Black;
+	min-height: 4em;
+}
+
+.note:before {
+	float: left;
+	margin: 0 5px 5px 0;
+}
+
+@media screen {
+	.note:before {
+		content: url(../images/note.png);
+	}
+}
+
+@media print {
+	.note {
+		page-break-inside: avoid;
+	}
+	.note:before {
+		content: url(../images/note.svg);
+	}
+}
+
+/* ノンブル */
+@page {
+	counter-increment: page;
+}
+
+@media print {
+	#toc-footer-left,#toc-footer-right,#footer-left,#footer-right {
+		bottom: -1cm;
+		width: 100%;
+		font-size: 10pt;
+		font-family: serif;
+		font-weight: bold;
+	}
+	#toc-footer-left {
+		-cssj-page-content: 'footer-left' left;
+		text-align: left;
+	}
+	#toc-footer-right {
+		-cssj-page-content: 'footer-right' right single;
+		text-align: right;
+	}
+	#toc-footer-left :before {
+		content: counter(page, lower-roman);
+	}
+	#toc-footer-right :after {
+		content: counter(page, lower-roman);
+	}
+	#first-section {
+		counter-reset: page 1;
+	}
+	#footer-left {
+		-cssj-page-content: 'footer-left' left;
+		text-align: left;
+	}
+	#footer-right {
+		-cssj-page-content: 'footer-right' right single;
+		text-align: right;
+	}
+	#footer-left :before {
+		content: counter(page);
+	}
+	#footer-right :after {
+		content: counter(page);
+	}
+	#footer-left :after {
+		margin-left: 5em;
+		font-family: sans-serif;
+		content: -cssj-heading(2);
+	}
+	#footer-right :before {
+		margin-right: 5em;
+		font-family: sans-serif;
+		content: -cssj-heading(2);
+	}
+	#header-left,#header-right {
+		top: -12mm;
+		width: 100%;
+		font-size: 9pt;
+		font-family: sans-serif;
+		font-weight: bold;
+	}
+	#header-left span.title,#header-right span.title {
+		margin: 2em;
+		font-size: 7pt;
+		font-family: serif;
+		font-weight: normal;
+	}
+	#header-left {
+		-cssj-page-content: 'header-left' left;
+		text-align: left;
+	}
+	#header-right {
+		-cssj-page-content: 'header-right' right single;
+		text-align: right;
+	}
+	#header-left :before {
+		font-family: sans-serif;
+		content: -cssj-heading(1);
+	}
+	#header-right :after {
+		font-family: sans-serif;
+		content: -cssj-heading(1);
+	}
+}
+
+/* 目次 */
+div.toctitle {
+	page-break-before: right;
+	font: bold x-large sans-serif;
+}
+
+ul.cssj-toc {
+	page-break-after: right;
+	margin: 0;
+	font-family: sans-serif;
+	line-height: 1.2;
+}
+
+ul.cssj-toc li {
+	list-style-type: none;
+	font-size: 16pt;
+	margin: 1.5em 0 0.6em 0;
+	height: 0.5em;
+	border-bottom: 1pt dotted;
+}
+
+ul.cssj-toc ul {
+	margin: 0 0 0 1em;
+}
+
+ul.cssj-toc ul li {
+	margin: 0.6em 0 0.6em 0;
+	font-size: 11pt;
+}
+
+ul.cssj-toc ul ul li {
+	margin: 0.6em 0 0.6em 1em;
+}
+
+ul.cssj-toc ul ul ul li {
+	margin: 0.6em 0 0.6em 1em;
+}
+
+ul.cssj-toc span {
+	background-color: White;
+}
+
+ul.cssj-toc span.cssj-page {
+	width: 2em;
+	position: absolute;
+	right: 0;
+	font-family: serif;
+	text-align: right;
+}
+
+/* そのほか */
+span.cssprop,span.cssdecl,span.ioprop {
+	font-family: 'Courier';
+}
+
+span.cssprop:before,span.cssprop:after {
+	content: "'";
+}
+
+span.cssdecl:before {
+	content: "{";
+}
+
+span.cssdecl:after {
+	content: "}";
+}
+
+span.ioprop:before,span.ioprop:after {
+	content: '"';
+}
+
+.negative {
+	background-color: LightGray;
+}
+
+.notice {
+	background-color: Yellow;
+}
+
+.check {
+	white-space: nowrap;
+}
+
+.check:before {
+	font-family: 'ZapfDingbats';
+	content: '\2714';
+}
+
+span.since {
+	font: italic 8pt serif;
+}
+
+span.since:before {
+	content: "[";
+}
+
+span.since:after {
+	content: "]";
+}
+
+table.chartable td:first-letter {
+	font-size: 16pt;
+}
+
+table.chartable td {
+	padding: 2px;
+	text-align: center;
+}
+
+table.chartable td.code,table.chartable tr.code td {
+	font: bold 12pt sans-serif;
+}
+</style>
+<title>CSSJ ドライバプロトコル (CTIP 1.0)</title>
+</head>
+<body>
+<h1>CSSJ ドライバプロトコル (CTIP 1.0)</h1>
+
+<h2>基本的なデータ型</h2>
+
+<h3>数値とバイト列</h3>
+<p>CSSJドライバプロトコルはバイナリ形式を用います。2バイト以上のデータの固まりは、必ず
+上位のバイトから送られます(ビッグエンディアン)。データの基本単位は次の4通りです。</p>
+
+<dl>
+	<dt>byte</dt>
+	<dd>符号つき1バイト整数</dd>
+	<dt>short</dt>
+	<dd>符号つき2バイト整数</dd>
+	<dt>int</dt>
+	<dd>符号付4バイト整数</dd>
+	<dt>data</dt>
+	<dd>符号なしバイト列</dd>
+</dl>
+
+<h3>文字列</h3>
+<p>文字列は次の形式で表します。</p>
+
+<pre>
+string := STRLEN STRING
+</pre>
+
+<p>ただし</p>
+
+<dl>
+	<dt>STRLEN(short)</dt>
+	<dd>文字列のバイト数。</dd>
+	<dt>STRING(data)</dt>
+	<dd>文字列。バイト数はSTRLENの通り。</dd>
+</dl>
+
+<p>文字列のエンコーディングは、最初の接続の際にクライアントが決定します (4.を参照してください)。</p>
+
+<h3>チャンク</h3>
+
+<p>クライアント-サーバー間でやり取りされるデータは適当な大きさの「チャンク」を単位として
+送られます。各チャンクは次の形式のバイト列です。</p>
+
+<pre>
+chunk := PAYLOAD TYPE [TYPE_SPECIFIC]
+</pre>
+
+<p>ただし</p>
+
+<dl>
+	<dt>PAYLOAD(int)</dt>
+	<dd>チャンクの大きさで、PAYLOAD自身の4バイトを除いた全体のバイト数です。</dd>
+	<dt>TYPE(byte)</dt>
+	<dd>チャンクのデータ型です。</dd>
+	<dt>[TYPE_SPECIFIC]</dt>
+	<dd>この部分はデータ型により異なります。</dd>
+</dl>
+
+<h2>クライアントからサーバーに送られるチャンク</h2>
+
+<h3>プロパティチャンク (TYPE=1)</h3>
+
+<p>サーバーの処理方法を指定するために、名前と値のペアで表現されるプロパティです。</p>
+
+<pre>
+property := PAYLOAD (byte)1 NAME VALUE
+</pre>
+
+<p>ただし</p>
+
+<dl>
+	<dt>NAME(string)</dt>
+	<dd>プロパティの名前</dd>
+	<dt>VALUE(string)</dt>
+	<dd>プロパティの値</dd>
+</dl>
+
+<h3>リソースチャンク (TYPE=2)</h3>
+
+<p>画像などのドキュメントの付随するデータの開始を示します。</p>
+
+<pre>
+resource := PAYLOAD (byte)2 URI TYPE ENCODING
+</pre>
+
+<p>ただし</p>
+
+<dl>
+	<dt>URI(string)</dt>
+	<dd>リソースの仮想URI</dd>
+	<dt>TYPE(string)</dt>
+	<dd>リソースのMIME型</dd>
+	<dt>ENCODING(string)</dt>
+	<dd>リソースのキャラクタ・エンコーディング</dd>
+</dl>
+
+<p>URI,TYPE,ENCODINGの指定しないものについては空の文字列を送信できます。</p>
+
+<h3>メインチャンク (TYPE=3)</h3>
+
+<p>ドキュメントの本体の開始を示します。</p>
+
+<pre>
+main := PAYLOAD (byte)3 URI TYPE ENCODING
+</pre>
+
+<p>ただし</p>
+
+<dl>
+	<dt>URI(string)</dt>
+	<dd>ドキュメントの仮想URI</dd>
+	<dt>TYPE(string)</dt>
+	<dd>ドキュメントのMIME型</dd>
+	<dt>ENCODING(string)</dt>
+	<dd>ドキュメントのキャラクタ・エンコーディング</dd>
+</dl>
+
+<p>URI,TYPE,ENCODINGの指定しないものについては空の文字列を送信できます。</p>
+
+<h3>データチャンク (TYPE=4)</h3>
+
+<p>resourceまたはmainチャンクに続くデータで、複数回送ることができます。</p>
+
+<pre>
+client_data := PAYLOAD (byte)4 DATA
+</pre>
+
+<p>だたし</p>
+
+<dl>
+	<dt>DATA(data)</dt>
+	<dd></dd>
+</dl>
+
+<p>DATAの大きさには制限があり、最大で1024バイトです。従ってチャンク全体の 大きさは最大1029バイトです。</p>
+
+<h3>終了</h3>
+
+<p>クライアントからのデータの送信の終了を表します(これはチャンクではありません)。</p>
+
+<pre>
+end := (int)0
+</pre>
+
+<h2>サーバーからクライアントに送られるチャンク</h2>
+
+<h3>追加チャンク (TYPE=1)</h3>
+
+<p>クライアント側にブロックを追加します。</p>
+
+<pre>
+add := PAYLOAD (byte)1
+</pre>
+
+<h3>挿入チャンク (TYPE=2)</h3>
+
+<p>クライアント側にブロックを挿入します。</p>
+
+<pre>
+insert := PAYLOAD (byte)2 ANCHOR_ID
+</pre>
+
+<p>だたし</p>
+
+<dl>
+	<dt>ANCHOR_ID(int)</dt>
+	<dd>挿入位置の直後にあるブロックの番号。</dd>
+</dl>
+
+<h3>メッセージチャンク (TYPE=3)</h3>
+
+<p>サーバーからクライアントに送られるエラー情報等のメッセージです。</p>
+
+<pre>
+message := PAYLOAD (byte)3 MESSAGE_TYPE MESSAGE
+</pre>
+
+<p>だたし</p>
+
+<dl>
+	<dt>MESSAGE_TYPE(byte)</dt>
+	<dd>メッセージのタイプ</dd>
+	<dt>MESSAGE(string)</dt>
+	<dd>メッセージの内容</dd>
+</dl>
+
+<p>メッセージのタイプには以下の4種類があります。</p>
+
+<dl>
+	<dt>1</dt>
+	<dd>警告</dd>
+	<dt>2</dt>
+	<dd>エラー</dd>
+	<dt>3</dt>
+	<dd>致命的なエラー</dd>
+	<dt>4</dt>
+	<dd>情報</dd>
+</dl>
+
+<h3>データ (TYPE=4)</h3>
+
+<p>クライアント側のブロックにデータを追加します。</p>
+
+<pre>
+server_data := PAYLOAD (byte)4 BLOCK_ID PROGRESS DATA
+</pre>
+
+<p>だたし</p>
+
+<dl>
+	<dt>BLOCK_ID(int)</dt>
+	<dd>データを追加するブロックのID</dd>
+	<dt>PROGRESS(int)</dt>
+	<dd>サーバー側で処理済のデータ(バイト数)</dd>
+	<dt>DATA(data)</dt>
+	<dd></dd>
+</dl>
+
+<h2>接続</h2>
+
+<p>ドライバがサーバーにTCP接続した後、プロトコルのバージョンとエンコーディングをサーバーに知ら
+せるために、次のメッセージを送ります。</p>
+
+<pre>
+"CTIP/1.0" " " ENCODING "\n"
+</pre>
+
+<p>ENCODINGはパラメーターあるいはメッセージの名前、値に使うキャラクタ・エンコーディング名です。
+CSSJサーバーを実行するJava環境がサポートするキャラクタ・エンコーディング名を使用できます。</p>
+
+<p>例) UTF-8キャラクタ・エンコーディングを用いる場合、ドライバは次のメッセージを送ります。</p>
+
+<pre>
+"CTIP/1.0 UTF-8\n"
+</pre>
+
+<p>サーバーがプロトコルをサポートしない場合は、直ちに接続が切断されます。プロトコルをサポートする 場合は、認証状態になります。</p>
+
+<h2>認証</h2>
+
+<p>接続後、クライアントはサーバーに認証情報を送る必要があります。認証情報はプロパティチャンクと
+同じ形式で、NAMEは"ctip.auth"です。VALUEは以下の形式です。</p>
+
+<pre>
+"PLAIN:" USER " " PASSWORD
+</pre>
+
+<p>USERはユーザー名で、PASSWORDはパスワードです。例えばユーザー名"user"、
+パスワード"password"で認証する場合は次のVALUEを用います。</p>
+
+<pre>
+"PLAIN: user password"
+</pre>
+
+<p>認証に成功した場合は、サーバーはメッセージチャンクと同じ形式で、MESSAGE_TYPEは4、
+MESSAGEは"OK"のデータを返します。それ以外の結果が返された場合は認証は失敗です。</p>
+
+<h2>プロパティとリソースの送信</h2>
+
+<p>認証に成功した後、クライアントはプロパテチャンクィをサーバーに送ることができます。プロパティの
+一覧はCSSJサーバーのドキュメントを参照してください。</p>
+
+<p>サーバーがアクセスできるリソースを指定するために、以下の特殊なNAMEを持つプロパティチャンクを 送ることができます。</p>
+
+<dl>
+	<dt>"ctip.include"</dt>
+	<dd>サーバーがアクセスできるリソースのURIパターン</dd>
+	<dt>"ctip.exclude"</dt>
+	<dd>サーバーのアクセスを除外するリソースのURIパターン</dd>
+</dl>
+
+<p>また、認証に成功した後はリソースチャンクを送ることができます。リソースチャンクの後にはその
+リソースの内容のデータチャンクを複数送ることができ、次のリソースチャンクかプロパティチャンク
+またはメインチャンクを送ることで前のリソースのデータを終了します。</p>
+
+<h2>ドキュメントの変換</h2>
+
+<p>ドキュメントの変換を開始する方法には２通りあり、メインチャンクか"ctip.main"というNAMEを持つ
+プロパティチャンクを送る方法があります。</p>
+
+<p>前者の方法では、メインチャンクを送った後、ドキュメントのデータを複数のデータチャンクとして
+送ります。一度メインチャンクを送った後は、データチャンクかセッションの終了を示す0(2.5参照)しか 送ることはできません。</p>
+
+<p>"ctip.main"プロパティチャンクの値はドキュメントのURIです。ドキュメントへはCSSJサーバーが
+直接アクセスします。"ctip.main"プロパティチャンクを送った後はセッションの終了を示す0 (2.5参照)しか送ることはできません。</p>
+
+<h2>クライアント側でのデータの構築</h2>
+
+<p>クライアントがメインチャンクまたは"ctip.main"プロパティチャンクを送った直後からサーバーは
+ドキュメントを変換した後のデータを送り返してきます。クライアントはメインチャンクを送った後に
+サーバーから変換後のデータを受け取るのと並行して(あるいはノンブロッキングI/Oを用いて反復して)、
+残りのドキュメントの内容をサーバーに送信できます。</p>
+
+<p>サーバーは追加チャンク、挿入チャンク、メッセージチャンク、データチャンクを繰り返しクライアントに
+送ります。サーバー側からのデータの送信はサーバー側からのソケットの切断をもって終了します。</p>
+
+<p>CSSJドライバプロトコルは、先頭から順に生成されないPDFのようなデータを連続して送ることが
+できるように設計されています。クライアントはサーバーの指示に従って、クライアント側のディスク上
+あるいはメモリ空間にIDが割り付けられた「ブロック」の列を生成します。データチャンクはデータと
+一緒にブロックのID(BLOCK_ID)を含んでおり、クライアントはそのブロックにデータを追加します。</p>
+
+<p>ブロックのIDは最初の値が0であるカウンタをクライアント側に持つことにより生成します。ブロックは
+IDをファイル名としたファイルで実現できますが、実際のCSSJドライバはもっと効率的な実装をしています。</p>
+
+<h3>ブロックの追加</h3>
+
+<p>サーバーから送られるデータのサイズが0でない場合は、最初に必ず追加チャンクが送られます。
+追加チャンクはクライアント側で現在のカウンタのIDを値とするブロックを列の末尾に生成します。 その後、カウンタの値を1つ増加させます。</p>
+
+<h3>ブロックの挿入</h3>
+
+<p>挿入チャンクはクライアント側で現在のカウンタのIDを値とするブロックを、ANCHOR_IDで示される ブロックの直前に生成します。
+その後、カウンタの値を1つ増加させます。</p>
+
+<h3>データの追加</h3>
+
+<p>データチャンクを受け取ったクライアントはBLOCK_IDで示されるブロックの末尾に受け取ったデータを追加 します。</p>
+
+<h3>データの構築</h3>
+
+<p>サーバーとの通信が終了した後、クライアントはブロックを先頭から順に結合し、完成されたデータとします。</p>
+
+<h2>ライセンス</h2>
+<pre>
+Copyright (c) 2012 座間ソフト
+
+Apache License Version 2.0に基づいてライセンスされます。
+あなたがこのファイルを使用するためには、本ライセンスに従わなければなりません。
+本ライセンスのコピーは下記の場所から入手できます。
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+適用される法律または書面での同意によって命じられない限り、
+本ライセンスに基づいて頒布されるソフトウェアは、明示黙示を問わず、
+いかなる保証も条件もなしに「現状のまま」頒布されます。
+本ライセンスでの権利と制限を規定した文言については、本ライセンスを参照してください。 
+
+Copyright (c) 2012 Zamasoft.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+</pre>
+
+</body>
+</html>

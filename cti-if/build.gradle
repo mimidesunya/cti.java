@@ -1,0 +1,7 @@
+dependencies {
+    api project(':zs-rsr')
+    api project(':zs-resolver')
+    api project(':zs-plugin')
+    compileOnly 'javax.servlet:javax.servlet-api:4.0.1'
+    compileOnly 'jakarta.servlet:jakarta.servlet-api:5.0.0'
+}

@@ -1,0 +1,10 @@
+dependencies {
+    implementation project(':cti-if')
+    implementation 'commons-cli:commons-cli:1.4'
+}
+
+processResources {
+    filesMatching('jp/cssj/driver/cli/VERSION') {
+        filter { line -> line.replace('#version#', project.version) }
+    }
+}

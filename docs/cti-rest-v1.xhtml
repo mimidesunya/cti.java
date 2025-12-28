@@ -1,0 +1,1327 @@
+<?xml version="1.0"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cssj="http://www.cssj.jp/ns/cssjml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+@page {
+	margin: 25mm 21.5mm 30mm 21.5mm;
+}
+
+@page :left {
+	margin: 25mm 25mm 30mm 18mm;
+}
+
+@page :right {
+	margin: 25mm 18mm 30mm 25mm;
+}
+
+/* 全体 */
+body {
+	line-height: 1.2;
+	font-size: 10.5pt;
+	font-family: serif;
+	text-align: justify;
+	orphans: 2;
+	windows: 3;
+}
+
+p,ul,ol {
+	margin-left: 20mm;
+}
+
+b,strong {
+	font-family: sans-serif;
+}
+
+pre,tt {
+	font-family: 'Courier' monospace;
+}
+
+tt {
+	white-space: nowrap;
+}
+
+pre {
+	font-size: 8pt;
+	white-space: pre-wrap;
+}
+
+@media screen {
+	.for-print {
+		display: none;
+	}
+}
+
+@media print {
+	.for-screen {
+		display: none;
+	}
+	a.pageref:after,.pageref a:after {
+		content: ' (' -cssj-page-ref(attr(href), page ) 'ページ)';
+	}
+}
+
+/* 見出し */
+h1,h2,h3,h4,h5,h6 {
+	font-family: sans-serif;
+}
+
+h1 {
+	font-size: 24pt;
+}
+
+h2 {
+	padding-bottom: 4pt;
+	border-bottom: 2pt solid Black;
+	font-size: 16pt;
+}
+
+h3 {
+	padding-bottom: 4pt;
+	border-bottom: 1pt solid Black;
+}
+
+h3,h4,h5,h6 {
+	margin-left: 20mm;
+	font-size: 12pt;
+}
+
+@media print {
+	h2:before {
+		content: counter(chapter) '.';
+		counter-increment: chapter;
+		counter-reset: section subsection example table;
+	}
+	h3:before {
+		content: counter(chapter) '.' counter(section) '\A0';
+		counter-increment: section;
+		counter-reset: subsection;
+	}
+	h4:before {
+		content: counter(chapter) '.' counter(section) '.' counter(subsection)
+			'\A0';
+		counter-increment: subsection;
+	}
+}
+
+/* リスト */
+ul {
+	margin: 1em 0 1em 20mm;
+}
+
+ul>li {
+	list-style-type: square;
+	list-style-position: inside;
+}
+
+dl {
+	border-left: 2px solid Black;
+	padding-left: 5px;
+}
+
+dt {
+	font-weight: bold;
+	font-family: sans-serif;
+	white-space: nowrap;
+	margin: 1em 0 0 0;
+}
+
+dd {
+	margin: 0 0 0 20mm;
+}
+
+/* テーブル */
+caption {
+	font-size: 10pt;
+	font-weight: bold;
+	font-family: sans-serif;
+	white-space: nowrap;
+	text-align: left;
+	margin: 1em 0 4pt 0;
+}
+
+table {
+	border-collapse: collapse;
+	margin-bottom: 1em;
+}
+
+th,td {
+	padding: 4pt;
+	border: 1pt solid Black;
+	text-align: justify;
+	font-size: 10pt;
+}
+
+tbody th {
+	font-weight: normal;
+	background-color: #CCCCCC;
+}
+
+thead {
+	font-family: sans-serif;
+	white-space: nowrap;
+	border-top: 1pt solid Black;
+	border-bottom: 1pt solid Black;
+	background-color: #CCCCCC;
+}
+
+td.nowrap {
+	white-space: nowrap;
+}
+
+tr {
+	page-break-inside: avoid;
+}
+
+@media print {
+	caption:before {
+		counter-increment: table;
+		content: '表 ' counter(chapter) '.' counter(table) ' ';
+	}
+}
+
+/* 例 */
+div.example pre {
+	white-space: pre-wrap;
+	font-size: 10pt;
+	margin: 0 0 1em 20mm;
+	windows: 10;
+	orphans: 10;
+	background-color: #DDDDDD;
+}
+
+/* 図 */
+div.figure {
+	page-break-inside: avoid;
+	margin: 5px auto;
+}
+
+div.figure>* {
+	display: block;
+	border: 1px solid Black;
+	margin: 5px auto;
+	padding: 5px;
+}
+
+div.figure:before,div.example:before {
+	border-bottom: 1pt solid Black;
+	padding-left: 5em;
+	font: bold 10pt/ 1.6 sans-serif;
+	white-space: nowrap;
+}
+
+div.figure *,div.example * {
+	page-break-before: avoid;
+}
+
+@media print {
+	div.example:before {
+		counter-increment: example;
+		content: '例 ' counter(chapter) '.' counter(example) ' ' attr(title);
+	}
+	div.figure:before {
+		counter-increment: figure;
+		content: '図 ' counter(chapter) '.' counter(figure) ' ' attr(title);
+	}
+}
+
+@media screen {
+	div.example:before {
+		content: '例 ' attr(title);
+	}
+	div.figure:before {
+		content: '図 ' attr(title);
+	}
+}
+
+/* 注意 */
+.note {
+	font-family: sans-serif;
+	padding: 1em;
+	border: 3px solid Black;
+	min-height: 4em;
+}
+
+.note:before {
+	float: left;
+	margin: 0 5px 5px 0;
+}
+
+@media screen {
+	.note:before {
+		content: url(../images/note.png);
+	}
+}
+
+@media print {
+	.note {
+		page-break-inside: avoid;
+	}
+	.note:before {
+		content: url(../images/note.svg);
+	}
+}
+
+/* ノンブル */
+@page {
+	counter-increment: page;
+}
+
+@media print {
+	#first-section {
+		counter-reset: page 1;
+	}
+	
+	#header-left,#header-right {
+		top: -12mm;
+		width: 100%;
+		font-size: 9pt;
+		font-family: serif;
+	}
+	#header-left {
+		-cssj-page-content: 'header-left' left;
+		text-align: left;
+	}
+	#header-right {
+		-cssj-page-content: 'header-right' right single;
+		text-align: right;
+	}
+	
+	#footer-left,#footer-right {
+		bottom: -1cm;
+		width: 100%;
+		font-size: 10pt;
+		font-family: serif;
+	}
+	#footer-left {
+		-cssj-page-content: 'footer-left' left;
+		text-align: left;
+	}
+	#footer-right {
+		-cssj-page-content: 'footer-right' right single;
+		text-align: right;
+	}
+	#footer-left:before {
+		content: counter(page);
+	}
+	#footer-right:after {
+		content: counter(page);
+	}
+	#footer-left:after {
+		margin-left: 5em;
+		font-family: sans-serif;
+		content: -cssj-heading(2);
+	}
+	#footer-right:before {
+		margin-right: 5em;
+		font-family: sans-serif;
+		content: -cssj-heading(2);
+	}
+}
+
+/* 目次 */
+div.toc {
+	font: bold large sans-serif;
+}
+
+ul.cssj-toc {
+	margin: 0;
+	font-family: sans-serif;
+	line-height: 1.4;
+}
+
+ul.cssj-toc li {
+	list-style-type: none;
+	margin: 1.5em 0 0.6em 0;
+	height: 0.8em;
+}
+ul.cssj-toc li {
+	display: none;
+}
+ul.cssj-toc ul li {
+	display: list-item;
+}
+ul.cssj-toc ul ul ul li {
+	display: none;
+}
+
+ul.cssj-toc ul {
+	margin: 0 0 0 1em;
+}
+
+ul.cssj-toc ul li {
+	margin: 0.6em 0 0.6em 0;
+	font-size: 11pt;
+}
+
+ul.cssj-toc ul ul li {
+	margin: 0.6em 0 0.6em 1em;
+}
+
+ul.cssj-toc ul ul ul li {
+	margin: 0.6em 0 0.6em 1em;
+}
+
+ul.cssj-toc span {
+	background-color: White;
+}
+
+ul.cssj-toc span.cssj-page {
+	font-family: serif;
+}
+ul.cssj-toc span.cssj-page:before {
+	content: ' (';
+}
+ul.cssj-toc span.cssj-page:after {
+	content: ')';
+}
+
+/* そのほか */
+span.cssprop,span.cssdecl,span.ioprop {
+	font-family: 'Courier';
+}
+
+span.cssprop:before,span.cssprop:after {
+	content: "'";
+}
+
+span.cssdecl:before {
+	content: "{";
+}
+
+span.cssdecl:after {
+	content: "}";
+}
+
+span.ioprop:before,span.ioprop:after {
+	content: '"';
+}
+
+.negative {
+	background-color: LightGray;
+}
+
+.notice {
+	background-color: Yellow;
+}
+
+.check {
+	white-space: nowrap;
+}
+
+.check:before {
+	font-family: 'ZapfDingbats';
+	content: '\2714';
+}
+
+span.since {
+	font: italic 8pt serif;
+}
+
+span.since:before {
+	content: "[";
+}
+
+span.since:after {
+	content: "]";
+}
+
+table.chartable td:first-letter {
+	font-size: 16pt;
+}
+
+table.chartable td {
+	padding: 2px;
+	text-align: center;
+}
+
+table.chartable td.code,table.chartable tr.code td {
+	font: bold 12pt sans-serif;
+}
+</style>
+<title>CTI HTTP/RESTインターフェース 1.0.1 仕様</title>
+</head>
+<body>
+<h1>CTI HTTP/RESTインターフェース 1.0.1<br/>仕様</h1>
+<div class="for-print">
+<div id="header-left">CTI HTTP/RESTインターフェース 1.0.1</div>
+<div id="header-right">CTI HTTP/RESTインターフェース 1.0.1</div>
+<div id="footer-left"></div>
+<div id="footer-right"></div>
+<div class="toc">目次</div>
+<cssj:make-toc counter="page"/>
+</div>
+
+<h2>概要</h2>
+<p>
+CTI HTTP/RESTインターフェースは、ウェブブラウザや各種プログラミング言語で実装されたHTTPクライアントライブラリにより、
+ドキュメント変換サーバーCopper PDFの機能を利用するためのインターフェースとして開発されました。
+</p>
+<p>
+従来、Copper PDFはCTIPと呼ばれる、ソケット通信上に実装されたプロトコルで通信していました。
+このプロトコルは高速である反面、複雑であるため、クライアントの実装に非常に手間がかかりました。
+</p>
+<p>
+CTI HTTP/RESTインターフェースは、HTTP上に実装された、比較的簡単なプロトコルであるため、
+一般的なHTTPクライアントライブラリを利用してアクセスすることができます。
+それでいて、CTIP 2.0と同等の機能を備えています。
+</p>
+<p>
+また、HTTPを利用することで、ファイアーウォール越しに接続しやすくなります。
+</p>
+<p>
+以下は、localhostの8097ポートでドキュメント変換サーバーが動いている場合の、最も簡単な利用例です。
+これをHTMLファイルとして保存し、変換ボタンを押すと、Hello world!の変換結果が表示されます。
+</p>
+<pre>
+<![CDATA[
+<form action="http://localhost:8097/transcode">
+  <input type="hidden" name="rest.user" value="user"/>
+  <input type="hidden" name="rest.password" value="kappa"/>
+  <input type="text" name="rest.main" value="Hello world!"/>
+  <button type="submit">変換</button>
+</form>
+]]>
+</pre>
+<h3>バージョン1.0.1の追加機能</h3>
+<p>
+新たに、複数の変換結果を結合する機能が追加されました。
+</p>
+
+<h2>通信方法</h2>
+
+<h3>アクション</h3>
+<p>
+接続の開始、終了、開始といった動作は、特定のURLにHTTPクライアントがアクセスすることにより実行され、アクションと呼びます。
+アクションの種類は、ファイルパスの文字列により識別されます。
+例えばlocalhostの8097ポートでドキュメント変換サーバーが動作している場合、セッションを開始するには、
+<tt>http://localhost:8097/open</tt>にアクセスします。
+</p>
+<p>
+アクションの一覧は以下の表のとおりです。
+アクションは、リクエストパラメータと共に実行する必要があります。
+アクションとパラメータの詳細は後で説明しています。
+</p>
+<table>
+  <thead>
+    <tr>
+      <th>パス</th>
+      <th>説明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>/open</td>
+      <td><a href="#open" class="pageref">セッションの開始</a></td>
+    </tr>
+    <tr>
+      <td>/info</td>
+      <td><a href="#info" class="pageref">サーバーの情報</a></td>
+    </tr>
+    <tr>
+      <td>/properties</td>
+      <td><a href="#properties" class="pageref">プロパティ設定</a></td>
+    </tr>
+    <tr>
+      <td>/resources</td>
+      <td><a href="#resources" class="pageref">リソース送信</a></td>
+    </tr>
+    <tr>
+      <td>/transcode</td>
+      <td><a href="#transcode" class="pageref">ドキュメント変換処理</a></td>
+    </tr>
+    <tr>
+      <td>/messages</td>
+      <td><a href="#messages" class="pageref">メッセージ受信</a></td>
+    </tr>
+    <tr>
+      <td>/result</td>
+      <td><a href="#result" class="pageref">ドキュメント変換結果受信</a></td>
+    </tr>
+    <tr>
+      <td>/abort</td>
+      <td><a href="#abort" class="pageref">ドキュメント変換処理の中断</a></td>
+    </tr>
+    <tr>
+      <td>/reset</td>
+      <td><a href="#reset" class="pageref">リセット</a></td>
+    </tr>
+    <tr>
+      <td>/join</td>
+      <td><a href="#join" class="pageref">結合</a></td>
+    </tr>
+    <tr>
+      <td>/close</td>
+      <td><a href="#close" class="pageref">セッションの終了</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>パラメータの送信</h3>
+<p>
+パラメータは、クエリパラメータとしてURLに付加する方法と、
+application/x-www-form-urlencodedにより送る方法と、
+multipart/form-dataにより送る方法の３種類があります。
+後者の方法ほど、大きなデータを送ることができます。
+特に、multipart/form-dataは、１回のアクションで複数のファイルを送信する唯一の方法です。
+</p>
+
+<h3>セッションの開始と終了</h3>
+<p>
+ドキュメント変換サーバーに接続し、接続を終了するまでの複数のアクションによる操作をセッションと呼びます。
+セッションはopenアクションにより開始し、closeアクションにより終了しますが、
+closeアクションを行わなければ、一定期間でセッションが終了します。
+</p>
+<p>
+open以外のアクションを実行するためには、原則としてセッションが開始した状態である必要がありますが、
+infoとtranscodeアクションは認証情報のパラメータを付与することで、セッションが開始していない状態で実行出来ます。
+ただし、transcodeアクションでは使用できる機能が一部限られます。
+</p>
+
+<h3>ドキュメントの変換処理</h3>
+<p>
+ドキュメント変換サーバーは、HTMLのようなドキュメントを変換する場合、
+変換状況やエラーをメッセージとして出力しながら処理します。
+また、文書に付随する画像等（リソース）があれば、サーバー側のファイルシステム等から取得するか、
+事前にクライアントから送られたリソースを利用しようと試みます。
+また、例えばPDFを出力する場合、変換結果は1つのファイルですが、複数のページを別々の画像として出力するような場合は、
+変換結果が複数のファイルになることがあります。
+</p>
+<p>
+変換結果が1つしかない処理の場合は、
+セッションを開始させずに、transcodeアクションを実行するだけで、ほとんどの用途には問題ありません。
+セッションを開始することが必要となるのは、変換処理中のメッセージを取得したい場合、
+処理の中断が必要な場合、サーバー側からクライアントにリソースの送信を要求する場合、
+画像など複数の処理結果を生成する必要がある場合です。
+</p>
+<p>
+変換処理中のメッセージを取得するには、変換処理中か処理後にmessagesアクションを呼び出します。
+変換処理中のmessagesアクションでは、現在までにサーバーが出力したメッセージを得ることが出来ます。
+リアルタイムに近い形でメッセージを得るには、クライアントが定期的にmessagesアクションを呼び出す必要があります。
+messagesアクションを呼び出してもメッセージが得られないケースを減らすため、実際にmessagesアクションが返す内容に変化があるまで待つ機能が用意されています。
+messagesアクションの呼び出しにより取得されたメッセージは、次のmessagesアクションの呼び出しで取得することはできません。
+</p>
+<p>
+変換処理を中断するには、変換処理中にabortアクションを呼び出します。
+</p>
+<p>
+プロパティやリソースは一度のtranscodeアクションでも送ることができますが、セッションを利用する場合は、
+propertiesアクションとresourcesアクションで別途送信することができます。
+</p>
+<p>
+transcodeアクションは、サーバーがクライアント側にリソースの送信を要求するモードで変換処理を実行することができます。
+例えば画像がメインドキュメントのHTMLファイル中のIMG要素で参照されている場合、
+クライアントは参照されている画像をリソースとしてサーバーに送信する必要がありますが、
+そのためには、クライアントはHTMLから参照されている画像を知る必要があります。
+通常、HTMLから参照されている画像を調べるには複雑な処理を要するため、それをドキュメント変換ーバーに委ねるのがこのモードです。
+クライアントはmessagesアクションにより、サーバーから要求されたリソースのURIを知ることが出来ます。
+その場合、クライアントがresourcesアクションで要求されたりソースをサーバーに送るか、リソースの不存在を通知しない限り、処理が滞ります。
+そのため、このモードではクライアントは定期的にmessagesアクションを呼び出す必要があります。
+</p>
+<p>
+transcodeアクションは、１つの変換結果であれば直接レスポンスとして返すことが出来ますが、
+複数の変換結果を受け取る場合は非同期モードでtranscodeアクションを実行する必要があります。
+結果がどのように生成されたかは、messagesアクションを呼び出すことで確認することが出来ます。
+変換結果のデータはresultアクションにより取得することが出来ます。
+</p>
+<p>
+ドキュメント変換処理が終わった後、同じセッションで続けてドキュメント変換処理を繰り返すことができます。
+このとき、既に設定されたプロパティと、送信済みのリソースは再利用されます。
+プロパティと、送信済みのリソースを破棄して、初期状態に戻すには、resetアクションを実行します。
+</p>
+
+<h3>レスポンスとメッセージコード</h3>
+<p>アクションに対して返されるレスポンスは、ドキュメントの変換結果等のデータか、次の形式のXMLです。</p>
+<pre>
+<![CDATA[
+<?xml version="1.0"?>
+<response>
+  <message code="[メッセージコード]">[メッセージ]</message>
+</response>
+]]>
+</pre>
+<p>メッセージコードは、4桁の<strong>16進数のコード</strong>です。
+<strong>プログラム等で処理する場合、メッセージコードを10進数として解析しないでください。</strong>
+メッセージは人間が読める形式のテキストです。
+ただし、メッセージコード1012では、ここにはセッションIDが入ります。</p>
+<table>
+  <thead>
+    <tr>
+      <th>メッセージコード</th>
+      <th>説明</th>
+      <th>HTTPステータス</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+	  <td>1011</td>
+	  <td>正常にアクションが実行されました。</td>
+	  <td>200</td>
+	</tr>
+	<tr>
+	  <td>1012</td>
+	  <td>セッションが開始されました。</td>
+	  <td>200</td>
+	</tr>
+	<tr>
+	  <td>1013</td>
+	  <td>変換処理を実行中です。</td>
+	  <td>200</td>
+	</tr>
+	<tr>
+	  <td>1014</td>
+	  <td>変換処理が終了しました。</td>
+	  <td>200</td>
+	</tr>
+	<tr>
+	  <td>3001</td>
+	  <td>メインドキュメントのURIが不正です。</td>
+	  <td>403</td>
+	</tr>
+	<tr>
+	  <td>3011</td>
+	  <td>不正なアクションです。</td>
+	  <td>403</td>
+	</tr>
+	<tr>
+	  <td>3012</td>
+	  <td>セッションがありません。</td>
+	  <td>403</td>
+	</tr>
+	<tr>
+	  <td>3013</td>
+	  <td>メインドキュメントがありません。</td>
+	  <td>403</td>
+	</tr>
+	<tr>
+	  <td>3014</td>
+	  <td>認証に失敗しました。</td>
+	  <td>403</td>
+	</tr>
+	<tr>
+	  <td>3015</td>
+	  <td>不正なリクエストです。</td>
+	  <td>400</td>
+	</tr>
+	<tr>
+	  <td>3016</td>
+	  <td>変換結果がありません。</td>
+	  <td>404</td>
+	</tr>
+	<tr>
+	  <td>4001</td>
+	  <td>その他のエラー。</td>
+	  <td>500</td>
+	</tr>
+  </tbody>
+</table>
+
+<h2>各アクションの説明</h2>
+
+<h3 id="open">open</h3>
+<h4>アクション</h4>
+<p>ドキュメント変換サーバーとのセッションを開始します。</p>
+<h4>リクエスト</h4>
+<table>
+	<caption>パラメータ</caption>
+	<thead>
+		<tr>
+			<th>名前</th>
+			<th>必須</th>
+			<th>説明</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>rest.user</td>
+			<td></td>
+			<td>ユーザー名</td>
+		</tr>
+		<tr>
+			<td>rest.password</td>
+			<td></td>
+			<td>パスワード</td>
+		</tr>
+		<tr>
+			<td>rest.timeout</td>
+			<td></td>
+			<td>セッションの最小持続時間</td>
+		</tr>
+		<tr>
+			<td>rest.httpSession</td>
+			<td></td>
+			<td>HTTPセッションの作成</td>
+		</tr>
+	</tbody>
+</table>
+<p>このアクションでドキュメント変換サーバーにセッションした後は、
+他のアクションでrest.idパラメータにセッションIDを渡すことでセッションを識別できるようになります。</p>
+<p>
+rest.timeoutには、セッションの最小持続時間をミリ秒単位で指定します。
+省略した場合は180000(3分)で、最大は3600000(1時間)に制限されます。
+</p>
+<p>rest.httpSessionパラメータにtrueを設定すると、
+クッキーに対応したHTTPクライアントに対して、
+クッキーを使ったHTTPセッション(RFC2965)を生成します。
+HTTPセッションを使うモードでは、HTTPセッションをドキュメント変換サーバーのセッションに対応させるため、
+以降のアクションのrest.idは不要になります。</p>
+<h4>レスポンス</h4>
+<p>正常にセッションが開始された場合、以下のレスポンスを返します。 
+[セッションID]を以降のアクションのrest.idパラメータに設定することで、セッションが同定されます。</p>
+<pre>
+<![CDATA[
+<?xml version="1.0"?>
+<response>
+  <message code="1012">[セッションID]</message>
+</response>
+]]>
+</pre>
+
+<h3 id="info">info</h3>
+<h4>アクション</h4>
+<p>サーバー情報を返します。</p>
+<h4>リクエスト</h4>
+<table>
+	<caption>パラメータ</caption>
+	<thead>
+		<tr>
+			<th>名前</th>
+			<th>必須</th>
+			<th>説明</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>rest.id</td>
+			<td></td>
+			<td>セッションID</td>
+		</tr>
+		<tr>
+			<td>rest.user</td>
+			<td></td>
+			<td>ユーザー名</td>
+		</tr>
+		<tr>
+			<td>rest.password</td>
+			<td></td>
+			<td>パスワード</td>
+		</tr>
+		<tr>
+			<td>rest.uri</td>
+			<td class="check"></td>
+			<td>サーバー情報の識別URI</td>
+		</tr>
+	</tbody>
+</table>
+<p>サーバー情報を返します。ドキュメント変換サーバーのバージョンや、対応データ形式等を取得することができます。
+rest.uriは、サーバー情報の種類を決めるためのURIです。
+URIについては、<a href="http://sourceforge.jp/projects/copper/wiki/CTIP2.0%E3%81%AE%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E6%83%85%E5%A0%B1">サーバー情報のURIと内容</a>を参照してください。</p>
+<p>rest.idパラメータが存在する場合、事前にopenアクションにより開始したセッションに対して実行されます。</p>
+<p>rest.idパラメータが省略され、かつHTTPセッションからもセッションを得ることができない場合は、
+今回のtranscodeアクションに限り有効なセッションが作られます。
+そのとき、rest.userとrest.passwordが認証に使われます。</p>
+<h4>レスポンス</h4>
+<p><a href="http://sourceforge.jp/projects/copper/wiki/CTIP2.0%E3%81%AE%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E6%83%85%E5%A0%B1">サーバー情報のURIと内容</a>を参照してください。</p>
+
+<h3 id="properties">properties</h3>
+<h4>アクション</h4>
+<p>セッションに対するプロパティを設定します。</p>
+<p>このアクションは、ドキュメント変換処理を実行中のセッションに対しては実行できません。</p>
+<h4>リクエスト</h4>
+<table>
+	<caption>パラメータ</caption>
+	<thead>
+		<tr>
+			<th>名前</th>
+			<th>必須</th>
+			<th>説明</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>rest.id</td>
+			<td class="check">(但しHTTPセッションを使う場合は不要)</td>
+			<td>セッションID</td>
+		</tr>
+		<tr>
+			<td>("rest."で始まらないパラメータ)</td>
+			<td></td>
+			<td>プロパティ</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+"rest."で始まらないパラメータは複数送ることが出来ます。
+それぞれがプロパティとして設定されます。
+</p>
+
+<h3 id="resources">resources</h3>
+<h4>アクション</h4>
+<p>セッションに対するリソースを送ります。</p>
+<p>このアクションは、通常はドキュメント変換処理を実行中のセッションに対しては実行できません。</p>
+<p>ただし、transcodeアクションでrest.requestResourceをtrue設定した変換処理中に、
+サーバーにより要求されたリソースを送るために使用することが出来ます。</p>
+<p>利便性のため、propertiesアクションに相当するプロパティの設定機能も併せ持っています。</p>
+<h4>リクエスト</h4>
+<table>
+	<caption>パラメータ</caption>
+	<thead>
+		<tr>
+			<th>名前</th>
+			<th>必須</th>
+			<th>説明</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>rest.id</td>
+			<td class="check">(但しHTTPセッションを使う場合は不要)</td>
+			<td>セッションID</td>
+		</tr>
+		<tr>
+			<td>rest.uri</td>
+			<td></td>
+			<td>リソースのURI</td>
+		</tr>
+		<tr>
+			<td>rest.mimeType</td>
+			<td></td>
+			<td>リソースのmime型</td>
+		</tr>
+		<tr>
+			<td>rest.encoding</td>
+			<td></td>
+			<td>リソースのキャラクタ・エンコーディング</td>
+		</tr>
+		<tr>
+			<td>rest.resource</td>
+			<td></td>
+			<td>リソースファイル</td>
+		</tr>
+		<tr>
+			<td>rest.notFound</td>
+			<td></td>
+			<td>リソースファイルが存在しないことを示す</td>
+		</tr>
+		<tr>
+			<td>("rest."で始まらないパラメータ)</td>
+			<td></td>
+			<td>プロパティ</td>
+		</tr>
+	</tbody>
+</table>
+<p>POSTメソッドで、
+application/x-www-form-urlencodedまたはmultipart/form-dataのいずれでもない形式でデータを送信した場合、
+送信データ自身がリソースファイルとなります。</p>
+<p>multipart/form-data形式の場合、 セッションIDは必ず一番最初に送るか、クエリパラメータとして送る必要があります。</p>
+<p>multipart/form-dataではない場合、 rest.uri, rest.mimeType,
+rest.encodingは、 それぞれ最初の値だけがリソースファイルに適用されます。</p>
+<p>application/x-www-form-urlencodedの場合、
+あるいはクエリパラメータとしてrest.resourceが送られた場合、 最初の値だけが有効です。</p>
+<p>multipart/form-dataの場合、 rest.resourceは複数送ることが出来ます。 rest.uri,
+rest.mimeType, rest.encodingは、 次にrest.resourceにより送られるリソースファイルに適用されます。
+リソースファイルが送られた時点でこれらのパラメータの効果はリセットされます。
+これらのパラメータがクエリパラメータとして送られた場合、最初の値だけが最初のリソースファイルに適用されます。
+ただし、リソースファイルの前にフィールドとして送られたパラメータにより上書きされます。</p>
+<p>application/x-www-form-urlencodedではない場合、
+HTTPリクエストまたはファイルパートのヘッダにより、
+リソースのURI、リソースのキャラクタ・エンコーディング、リソースのmime型、リソースファイルを設定することできます。
+ただし、ヘッダよりリクエストパラメータによるものが優先されます。 優先度とヘッダによる設定は次の表の通りとなります。</p>
+<table>
+	<thead>
+		<tr>
+			<th>属性</th>
+			<th>最優先</th>
+			<th>次に優先</th>
+			<th>優先度低</th>
+			<th>デフォルト</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>URI</td>
+			<td>rest.uriパラメータ</td>
+			<td>X-URIヘッダ</td>
+			<td>Content-Dispositionヘッダのfilenameパラメータ(相対URI)</td>
+			<td>"."(カレントファイルを表す相対URI)</td>
+		</tr>
+		<tr>
+			<td>mime型</td>
+			<td>rest.mimeTypeパラメータ</td>
+			<td>Content-Typeヘッダ</td>
+			<td></td>
+			<td>なし(サーバー側の自動判別)</td>
+		</tr>
+		<tr>
+			<td>キャラクタ・エンコーディング</td>
+			<td>rest.encodingパラメータ</td>
+			<td>Content-Typeヘッダのcharsetパラメータ</td>
+			<td></td>
+			<td>なし(サーバー側の自動判別)</td>
+		</tr>
+	</tbody>
+</table>
+<p>rest.notFoundはサーバーから要求されたリソースを送信する場合だけ、
+rest.resourceパラメータの代わりに使うことが出来ます。
+ trueに設定すると、そのリソースが存在しないことを示します。</p>
+<p>
+"rest."で始まらないパラメータは複数送ることが出来ます。
+それぞれがプロパティとして設定されます。
+</p>
+
+<h3 id="transcode">transcode</h3>
+<h4>アクション</h4>
+<p>変換処理を実行します。</p>
+<p>このアクションは、openによりセッションを開始していない状態でも実行出来ます。 </p>
+<p>変換結果は1つだけ受け取る方法と、複数受け取る方法があります。
+openによりセッションを開始していない状態では、結果はこのアクションのレスポンスとして1つしか受け取ることができません。</p>
+<p>利便性のため、properties,
+resourcesアクションに相当するプロパティの設定とリソースの送信機能も併せ持っています。</p>
+<p>このアクションは、変換処理を実行中のセッションに対しては実行できません。</p>
+<h4>リクエスト</h4>
+<table>
+	<caption>パラメータ</caption>
+	<thead>
+		<tr>
+			<th>名前</th>
+			<th>必須</th>
+			<th>説明</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>rest.id</td>
+			<td></td>
+			<td>セッションID</td>
+		</tr>
+		<tr>
+			<td>rest.user</td>
+			<td></td>
+			<td>ユーザー名</td>
+		</tr>
+		<tr>
+			<td>rest.password</td>
+			<td></td>
+			<td>パスワード</td>
+		</tr>
+		<tr>
+			<td>rest.async</td>
+			<td></td>
+			<td>非同期モードの設定</td>
+		</tr>
+		<tr>
+			<td>rest.requestResource</td>
+			<td></td>
+			<td>サーバーからリソースを要求するモードの設定</td>
+		</tr>
+		<tr>
+			<td>rest.continuous</td>
+			<td></td>
+			<td>複数の結果を結合するモードの設定</td>
+		</tr>
+		<tr>
+			<td>("rest."で始まらないパラメータ)</td>
+			<td></td>
+			<td>プロパティ</td>
+		</tr>
+		<tr>
+			<td>rest.uri</td>
+			<td></td>
+			<td>メインドキュメント/リソースのURI</td>
+		</tr>
+		<tr>
+			<td>rest.mimeType</td>
+			<td></td>
+			<td>メインドキュメント/リソースのmime型</td>
+		</tr>
+		<tr>
+			<td>rest.encoding</td>
+			<td></td>
+			<td>メインドキュメント/リソースのキャラクタ・エンコーディング</td>
+		</tr>
+		<tr>
+			<td>rest.resource</td>
+			<td></td>
+			<td>リソースファイル</td>
+		</tr>
+		<tr>
+			<td>rest.main</td>
+			<td>※説明を参照</td>
+			<td>メインドキュメントファイル</td>
+		</tr>
+		<tr>
+			<td>rest.mainURI</td>
+			<td>※説明を参照</td>
+			<td>メインドキュメントファイルURI</td>
+		</tr>
+	</tbody>
+</table>
+<p>rest.idパラメータが存在する場合、事前にopenアクションにより開始したセッションに対して実行されます。</p>
+<p>rest.idパラメータが省略され、かつHTTPセッションからもセッションを得ることができない場合は、
+今回のtranscodeアクションに限り有効なセッションが作られます。
+そのとき、rest.userとrest.passwordが認証に使われます。</p>
+<p>POSTメソッドで、
+application/x-www-form-urlencodedまたはmultipart/form-dataのいずれでもない形式でデータを送信した場合、
+送信データがメインドキュメントファイルとなります。</p>
+<p>multipart/form-data形式でパラメータ・ファイルを送信する場合、
+rest.mainまたはrest.mainURI以外のパラメータは必ずrest.mainまたはrest.mainURIの前に送るか、
+クエリパラメータとして送る必要があります。</p>
+<p>application/x-www-form-urlencodedまたはmultipart/form-dataの場合、rest.mainまたはrest.mainURIが送られた時点で処理を終了します。</p>
+<p>
+"rest."で始まらないパラメータは複数送ることが出来ます。
+それぞれがプロパティとして設定されます。
+</p>
+<p>リソースの処理については、resourcesアクションと同様です。</p>
+<p>rest.uri, rest.mimeType, rest.encodingはリソースファイルの他、
+rest.mainによるメインドキュメントファイルにも適用されます。
+rest.mainURIによるメインドキュメントファイルには適用されません。
+HTTPリクエストまたはファイルパートのヘッダとの関係についてはresourcesアクションのリソースファイルと同様です。</p>
+<h4>レスポンス</h4>
+<p>rest.asyncパラメータが設定されていない場合、 メインドキュメントの変換結果が生成されるまでレスポンスを返しません。
+レスポンスの内容は変換結果そのものとなります。</p>
+<p>rest.asyncパラメータがtrueの場合、即座にメッセージコード1011のレスポンスを返します。
+メインドキュメントの内容は、messagesアクションで処理の完了を確認した後、 resultsアクションで取得する必要があります。
+ただし、rest.idパラメータが存在しない場合はrest.asyncパラメータは無視されます。</p>
+<p>rest.requestResourceがtrueの場合、
+サーバーが必要なリソースの送信を要求し、リソースが送られるまで処理が滞るようになります。
+ただし、rest.asyncパラメータがtrueでない場合はrest.requestResourceパラメータは無視されます。</p>
+<p>rest.continuousがtrueの場合、
+joinが実行されるまで結果は返されません。
+ただし、rest.asyncパラメータがtrueでない場合はrest.continuousパラメータは無視されます。</p>
+
+<h3 id="messages">messages</h3>
+<h4>アクション</h4>
+<p>セッションの変換処理で出力されたメッセージと、処理状況を返します。</p>
+<h4>リクエスト</h4>
+<table>
+	<caption>パラメータ</caption>
+	<thead>
+		<tr>
+			<th>名前</th>
+			<th>必須</th>
+			<th>説明</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>rest.id</td>
+			<td class="check">(但しHTTPセッションを使う場合は不要)</td>
+			<td>セッションID</td>
+		</tr>
+		<tr>
+			<td>rest.wait</td>
+			<td></td>
+			<td>待ち時間</td>
+		</tr>
+	</tbody>
+</table>
+<p>rest.waitパラメータが省略された場合、即座にレスポンスを返します。</p>
+<p>rest.waitパラメータが設定された場合、 メッセージが生成されるか、結果が生成されるか、変換処理が終了するまで、
+最大で指定された時間(ミリ秒)まで待ちます。 0の場合は最大待ち時間を設定しません。
+また、変換処理が行われていないか、既に終わっている場合は、即座にレスポンスを返します。</p>
+<h4>レスポンス</h4>
+<p>レスポンスは次のような形式です。</p>
+<pre>
+<![CDATA[
+<?xml version="1.0"?>
+<response>
+  <message code="[メッセージコード]"></message>
+  <messages>
+    <message code="[メッセージコード]" arg0="[値0]" arg1="[値1]" ...>[メッセージ]</message>
+    ...
+  </messages>
+  <interrupted code="[メッセージコード]" arg0="[値0]" arg1="[値1]" ...>[メッセージ]</interrupted>
+  <resources>
+    <resource uri="[URI]" />
+  </resources>
+  <results>
+    <result uri="[URI]" mimeType="[mime型]"
+            encoding="[キャラクタ・エンコーディング]" length="[バイト数]"/>
+  </results>
+  <progress read="[読み込み済みバイト数]" length="[ソースドキュメントバイト数]" />
+</response>
+]]>
+</pre>
+<p>response直下のmessageは、まだ変換処理を実行中であればコード1013、変換処理が終了していればコード1014を返します。</p>
+<p>messages内のmessageは変換処理過程で生成されたメッセージのうち、まだクライアントに送られていないものです。
+未送信のメッセージが存在しない場合は、messages要素はありません。
+メッセージコードはドキュメント変換サーバーに依存します。</p>
+<p>interruptedが存在する場合は、変換処理がメッセージに示された理由で中断されています。
+メッセージコードはドキュメント変換サーバーに依存します。</p>
+<p>resources内のresourceはrest.requestResourceをtrueとしたモードの変換処理過程で要求されたリソースのうち、
+クライアントからリソースの内容の送信または不存在の通知がされていないものです。 
+要求されるリソースが存在しない場合はresources要素はありません。</p>
+<p>results内のresultは変換処理過程で生成された変換結果です。 
+result要素のmimeType, encoding, lengthの各属性は省略されることがあります。
+変換結果が生成されていない場合はresults要素はありません。</p>
+<p>progressは処理状況です。 ソースドキュメントの大きさが不明の場合は、length属性はありません。
+また、変換処理が開始されておらず、ソースドキュメントの大きさも不明の場合はprogress要素はありません。</p>
+
+<h3 id="result">result</h3>
+<h4>アクション</h4>
+<p>変換結果を返します。</p>
+<p>このアクションはrest.asyncにtrueを設定して変換処理を行った場合だけ有効です。</p>
+<h4>リクエスト</h4>
+<table>
+	<caption>パラメータ</caption>
+	<thead>
+		<tr>
+			<th>名前</th>
+			<th>必須</th>
+			<th>説明</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>rest.id</td>
+			<td class="check">(但しHTTPセッションを使う場合は不要)</td>
+			<td>セッションID</td>
+		</tr>
+		<tr>
+			<td>rest.uri</td>
+			<td></td>
+			<td>変換結果URI</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+messagesアクションで得られるメッセージのresult要素のuri属性の値を、
+rest.uriに指定すると、その結果が得られます。
+</p>
+<h4>レスポンス</h4>
+<p>
+rest.uriで指定した結果が存在する場合は結果データ。
+rest.uriで指定した結果が存在しない場合は3013メッセージ。
+</p>
+
+<h3 id="abort">abort</h3>
+<h4>アクション</h4>
+<p>セッションの変換処理を中断します。</p>
+<h4>リクエスト</h4>
+<table>
+	<caption>パラメータ</caption>
+	<thead>
+		<tr>
+			<th>名前</th>
+			<th>必須</th>
+			<th>説明</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>rest.id</td>
+			<td class="check">(但しHTTPセッションを使う場合は不要)</td>
+			<td>セッションID</td>
+		</tr>
+		<tr>
+			<td>rest.mode</td>
+			<td></td>
+			<td>即時中断の設定</td>
+		</tr>
+	</tbody>
+</table>
+<p>rest.modeパラメータが存在しない場合は、 なるべく「きりのよいところ」まで変換処理を実行した後、中断します。</p>
+<p>rest.modeパラメータがforceの場合は、 なるべく即座に変換処理を中断します。</p>
+
+<h3 id="reset">reset</h3>
+<h4>アクション</h4>
+<p>セッションのプロパティ、送信済みのリソース、変換結果をクリアします。</p>
+<p>変換処理が実行中の場合、即時中断処理され、変換処理が終わるのを待ちます。</p>
+<h4>リクエスト</h4>
+<table>
+	<caption>パラメータ</caption>
+	<thead>
+		<tr>
+			<th>名前</th>
+			<th>必須</th>
+			<th>説明</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>rest.id</td>
+			<td class="check">(但しHTTPセッションを使う場合は不要)</td>
+			<td>セッションID</td>
+		</tr>
+	</tbody>
+</table>
+
+<h3 id="join">join</h3>
+<h4>アクション</h4>
+<p>結果を結合します。</p>
+<p>変換処理が実行中の場合、即時中断処理され、変換処理が終わるのを待ちます。</p>
+<h4>リクエスト</h4>
+<table>
+	<caption>パラメータ</caption>
+	<thead>
+		<tr>
+			<th>名前</th>
+			<th>必須</th>
+			<th>説明</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>rest.id</td>
+			<td class="check">(但しHTTPセッションを使う場合は不要)</td>
+			<td>セッションID</td>
+		</tr>
+	</tbody>
+</table>
+
+<h3 id="close">close</h3>
+<h4>アクション</h4>
+<p>セッションを終了します。</p>
+<p>変換処理が実行中の場合、即時中断処理されますが、 実際の変換処理の終了を待たず、すぐにセッションを利用できなくなります。</p>
+<h4>リクエスト</h4>
+<table>
+	<caption>パラメータ</caption>
+	<thead>
+		<tr>
+			<th>名前</th>
+			<th>必須</th>
+			<th>説明</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>rest.id</td>
+			<td class="check">(但しHTTPセッションを使う場合は不要)</td>
+			<td>セッションID</td>
+		</tr>
+	</tbody>
+</table>
+
+<h2>ライセンス</h2>
+<pre>
+Copyright (c) 2012 座間ソフト
+
+Apache License Version 2.0に基づいてライセンスされます。
+あなたがこのファイルを使用するためには、本ライセンスに従わなければなりません。
+本ライセンスのコピーは下記の場所から入手できます。
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+適用される法律または書面での同意によって命じられない限り、
+本ライセンスに基づいて頒布されるソフトウェアは、明示黙示を問わず、
+いかなる保証も条件もなしに「現状のまま」頒布されます。
+本ライセンスでの権利と制限を規定した文言については、本ライセンスを参照してください。 
+
+Copyright (c) 2012 Zamasoft.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+</pre>
+
+</body>
+</html>

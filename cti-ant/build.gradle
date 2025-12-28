@@ -1,0 +1,4 @@
+dependencies {
+    implementation project(':cti-if')
+    compileOnly 'org.apache.ant:ant:1.10.12'
+}

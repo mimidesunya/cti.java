@@ -1,0 +1,70 @@
+dependencies {
+    api project(':cti-ant')
+    api project(':cti-cli')
+    api project(':cti-driver-ctip')
+    api project(':cti-driver-rest')
+    api project(':cti-if')
+}
+
+// This is the "fat jar" equivalent to Maven's jar-with-dependencies
+jar {
+    archiveClassifier = 'with-dependencies'
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    
+    // Explicitly declare dependencies on subproject jar tasks to satisfy Gradle 8+
+    dependsOn(':cti-ant:jar')
+    dependsOn(':cti-cli:jar')
+    dependsOn(':cti-driver-ctip:jar')
+    dependsOn(':cti-driver-rest:jar')
+    dependsOn(':cti-if:jar')
+    dependsOn(':zs-plugin:jar')
+    dependsOn(':zs-rsr:jar')
+    dependsOn(':zs-resolver:jar')
+}
+
+task fullJar(type: Jar) {
+    archiveBaseName = 'cti-driver'
+    archiveVersion = project.version
+    
+    manifest {
+        attributes 'Main-Class': 'jp.cssj.driver.cli.Main'
+    }
+    
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    
+    // 1. From cti-driver-rest: only the plugin impl file
+    from(zipTree(project(':cti-driver-rest').jar.archiveFile)) {
+        include 'META-INF/plugin/jp.cssj.cti2.CTIDriver.impl'
+    }
+    
+    // 2. From all dependencies and subprojects (excluding what Ant excluded)
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    } {
+        exclude 'javax/**'
+        exclude 'jakarta/**'
+        exclude 'META-INF/plugin/jp.cssj.cti2.CTIDriver.impl'
+    }
+    
+    dependsOn ':cti-driver-rest:jar'
+    dependsOn configurations.runtimeClasspath
+}
+
+task minJar(type: Jar) {
+    archiveBaseName = 'cti-driver-min'
+    archiveVersion = project.version
+    
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    
+    // Ant script: cti-driver-ctip, cti-if, zs-plugin, zs-resolver, zs-rsr
+    def minProjects = [':cti-driver-ctip', ':cti-if', ':zs-plugin', ':zs-resolver', ':zs-rsr']
+    minProjects.each { projectName ->
+        from(zipTree(project(projectName).jar.archiveFile))
+        dependsOn "${projectName}:jar"
+    }
+}
+
+build.dependsOn fullJar, minJar

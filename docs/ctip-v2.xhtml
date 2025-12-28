@@ -1,0 +1,1611 @@
+<?xml version="1.0"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cssj="http://www.cssj.jp/ns/cssjml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+@page {
+	margin: 25mm 21.5mm 30mm 21.5mm;
+}
+
+@page :left {
+	margin: 25mm 25mm 30mm 18mm;
+}
+
+@page :right {
+	margin: 25mm 18mm 30mm 25mm;
+}
+
+/* 全体 */
+body {
+	line-height: 1.2;
+	font-size: 10.5pt;
+	font-family: serif;
+	text-align: justify;
+	orphans: 2;
+	windows: 3;
+}
+
+p,ul,ol {
+	margin-left: 20mm;
+}
+
+b,strong {
+	font-family: sans-serif;
+}
+
+pre,tt {
+	font-family: 'Courier' monospace;
+}
+
+tt {
+	white-space: nowrap;
+}
+
+@media screen {
+	.for-print {
+		display: none;
+	}
+}
+
+@media print {
+	.for-screen {
+		display: none;
+	}
+	a.pageref:after,.pageref a:after {
+		content: ' (' -cssj-page-ref(attr(href), page ) 'ページ)';
+	}
+}
+
+/* 見出し */
+h1,h2,h3,h4,h5,h6 {
+	font-family: sans-serif;
+}
+
+h1 {
+	font-size: 24pt;
+}
+
+h2 {
+	padding-bottom: 4pt;
+	border-bottom: 2pt solid Black;
+	font-size: 16pt;
+}
+
+h1+h2 {
+	page-break-before: auto;
+}
+
+h3 {
+	padding-bottom: 4pt;
+	border-bottom: 1pt solid Black;
+}
+
+h3,h4,h5,h6 {
+	margin-left: 20mm;
+	font-size: 12pt;
+}
+
+@media print {
+	h2:before {
+		content: counter(chapter) '.';
+		counter-increment: chapter;
+		counter-reset: section subsection example table;
+	}
+	h3:before {
+		content: counter(chapter) '.' counter(section) '\A0';
+		counter-increment: section;
+		counter-reset: subsection;
+	}
+	h4:before {
+		content: counter(chapter) '.' counter(section) '.' counter(subsection)
+			'\A0';
+		counter-increment: subsection;
+	}
+}
+
+/* リスト */
+ul {
+	margin: 1em 0 1em 20mm;
+}
+
+ul>li {
+	list-style-type: square;
+	list-style-position: inside;
+}
+
+dl {
+	border-left: 2px solid Black;
+	padding-left: 5px;
+}
+
+dt {
+	font-weight: bold;
+	font-family: sans-serif;
+	white-space: nowrap;
+	margin: 1em 0 0 0;
+}
+
+dd {
+	margin: 0 0 0 20mm;
+}
+
+/* テーブル */
+caption {
+	font-size: 10pt;
+	font-weight: bold;
+	font-family: sans-serif;
+	white-space: nowrap;
+	text-align: left;
+	margin: 1em 0 4pt 0;
+}
+
+table {
+	border-collapse: collapse;
+	margin-bottom: 1em;
+	page-break-inside: avoid;
+}
+
+th,td {
+	padding: 4pt;
+	border: 1pt solid Black;
+	text-align: justify;
+	font-size: 10pt;
+}
+
+tbody th {
+	font-weight: normal;
+	background-color: #CCCCCC;
+}
+
+thead {
+	font-family: sans-serif;
+	white-space: nowrap;
+	border-top: 1pt solid Black;
+	border-bottom: 1pt solid Black;
+	background-color: #CCCCCC;
+}
+
+td.nowrap {
+	white-space: nowrap;
+}
+
+tr {
+	page-break-inside: avoid;
+}
+
+@media print {
+	caption:before {
+		counter-increment: table;
+		content: '表 ' counter(chapter) '.' counter(table) ' ';
+	}
+}
+
+/* 例 */
+div.example pre {
+	white-space: pre-wrap;
+	font-size: 10pt;
+	margin: 0 0 1em 20mm;
+	windows: 10;
+	orphans: 10;
+	background-color: #DDDDDD;
+}
+
+/* 図 */
+div.figure {
+	page-break-inside: avoid;
+	margin: 5px auto;
+}
+
+div.figure>* {
+	display: block;
+	border: 1px solid Black;
+	margin: 5px auto;
+	padding: 5px;
+}
+
+div.figure:before,div.example:before {
+	border-bottom: 1pt solid Black;
+	padding-left: 5em;
+	font: bold 10pt/ 1.6 sans-serif;
+	white-space: nowrap;
+}
+
+div.figure *,div.example * {
+	page-break-before: avoid;
+}
+
+@media print {
+	div.example:before {
+		counter-increment: example;
+		content: '例 ' counter(chapter) '.' counter(example) ' ' attr(title);
+	}
+	div.figure:before {
+		counter-increment: figure;
+		content: '図 ' counter(chapter) '.' counter(figure) ' ' attr(title);
+	}
+}
+
+@media screen {
+	div.example:before {
+		content: '例 ' attr(title);
+	}
+	div.figure:before {
+		content: '図 ' attr(title);
+	}
+}
+
+/* 注意 */
+.note {
+	font-family: sans-serif;
+	padding: 1em;
+	border: 3px solid Black;
+	min-height: 4em;
+}
+
+.note:before {
+	float: left;
+	margin: 0 5px 5px 0;
+}
+
+@media screen {
+	.note:before {
+		content: url(../images/note.png);
+	}
+}
+
+@media print {
+	.note {
+		page-break-inside: avoid;
+	}
+	.note:before {
+		content: url(../images/note.svg);
+	}
+}
+
+/* ノンブル */
+@page {
+	counter-increment: page;
+}
+
+@media print {
+	#first-section {
+		counter-reset: page 1;
+	}
+	
+	#header-left,#header-right {
+		top: -12mm;
+		width: 100%;
+		font-size: 9pt;
+		font-family: serif;
+	}
+	#header-left {
+		-cssj-page-content: 'header-left' left;
+		text-align: left;
+	}
+	#header-right {
+		-cssj-page-content: 'header-right' right single;
+		text-align: right;
+	}
+	
+	#footer-left,#footer-right {
+		bottom: -1cm;
+		width: 100%;
+		font-size: 10pt;
+		font-family: serif;
+	}
+	#footer-left {
+		-cssj-page-content: 'footer-left' left;
+		text-align: left;
+	}
+	#footer-right {
+		-cssj-page-content: 'footer-right' right single;
+		text-align: right;
+	}
+	#footer-left:before {
+		content: counter(page);
+	}
+	#footer-right:after {
+		content: counter(page);
+	}
+	#footer-left:after {
+		margin-left: 5em;
+		font-family: sans-serif;
+		content: -cssj-heading(2);
+	}
+	#footer-right:before {
+		margin-right: 5em;
+		font-family: sans-serif;
+		content: -cssj-heading(2);
+	}
+}
+
+/* 目次 */
+div.toc {
+	font: bold large sans-serif;
+}
+
+ul.cssj-toc {
+	margin: 0;
+	font-family: sans-serif;
+	line-height: 1.4;
+}
+
+ul.cssj-toc li {
+	list-style-type: none;
+	margin: 1.5em 0 0.6em 0;
+	height: 0.8em;
+}
+ul.cssj-toc li {
+	display: none;
+}
+ul.cssj-toc ul li {
+	display: list-item;
+}
+ul.cssj-toc ul ul ul li {
+	display: none;
+}
+
+ul.cssj-toc ul {
+	margin: 0 0 0 1em;
+}
+
+ul.cssj-toc ul li {
+	margin: 0.6em 0 0.6em 0;
+	font-size: 11pt;
+}
+
+ul.cssj-toc ul ul li {
+	margin: 0.6em 0 0.6em 1em;
+}
+
+ul.cssj-toc ul ul ul li {
+	margin: 0.6em 0 0.6em 1em;
+}
+
+ul.cssj-toc span {
+	background-color: White;
+}
+
+ul.cssj-toc span.cssj-page {
+	font-family: serif;
+}
+ul.cssj-toc span.cssj-page:before {
+	content: ' (';
+}
+ul.cssj-toc span.cssj-page:after {
+	content: ')';
+}
+
+/* そのほか */
+span.cssprop,span.cssdecl,span.ioprop {
+	font-family: 'Courier';
+}
+
+span.cssprop:before,span.cssprop:after {
+	content: "'";
+}
+
+span.cssdecl:before {
+	content: "{";
+}
+
+span.cssdecl:after {
+	content: "}";
+}
+
+span.ioprop:before,span.ioprop:after {
+	content: '"';
+}
+
+.negative {
+	background-color: LightGray;
+}
+
+.notice {
+	background-color: Yellow;
+}
+
+.check {
+	white-space: nowrap;
+}
+
+.check:before {
+	font-family: 'ZapfDingbats';
+	content: '\2714';
+}
+
+span.since {
+	font: italic 8pt serif;
+}
+
+span.since:before {
+	content: "[";
+}
+
+span.since:after {
+	content: "]";
+}
+
+table.chartable td:first-letter {
+	font-size: 16pt;
+}
+
+table.chartable td {
+	padding: 2px;
+	text-align: center;
+}
+
+table.chartable td.code,table.chartable tr.code td {
+	font: bold 12pt sans-serif;
+}
+
+div.block {
+	font: 9px/15px monospace;
+	height: 20px;
+	page-break-inside: avoid;
+}
+
+div.block span {
+	float: left;
+	height: 15px;
+	padding: 2px;
+}
+
+div.block span.left {
+	width: 90px;
+}
+
+div.block span.byte,div.block span.short,div.block span.int,div.block span.long,div.block span.data,div.block span.string
+	{
+	background-image: url(octet.png);
+	border: 1px solid Black;
+}
+
+div.block span.byte {
+	width: 19px; /* 24 - 4 - 1 */
+}
+
+div.block span.short {
+	width: 43px; /* 24 * 2 - 4 - 1 */
+}
+
+div.block span.int {
+	width: 91px;
+}
+
+div.block span.long {
+	width: 187px;
+}
+
+div.block span.data {
+	width: 200px;
+	border-right: 1px dashed Black;
+}
+
+div.block span.string {
+	width: 50px;
+	border-right: 1px dashed Black;
+}
+</style>
+<title>CTIP バージョン 2.0.1 仕様</title>
+</head>
+<body>
+<h1>CTIP バージョン 2.0.1 仕様</h1>
+<div class="for-print">
+<div id="header-left">CTIP バージョン 2.0.1</div>
+<div id="header-right">CTIP バージョン 2.0.1</div>
+<div id="footer-left"></div>
+<div id="footer-right"></div>
+<div class="toc">目次</div>
+<cssj:make-toc counter="page"/>
+</div>
+
+<h2>概要</h2>
+<p>
+CTIPは、アプリケーションからドキュメント変換サーバーCopper PDFの機能を利用するための、ソケット通信プロトコルとして開発されました。
+ライブラリのリンクという方法ではなく、ソケット通信により連携することにより、プログラミング言語に依存しない、２つのプログラムが物理的に離れていても連携できるというメリットがあります。
+</p>
+<p>
+前バージョンのCTIP 1.0は2005年に開発されました。
+CTIP 2.0はその後継版で、次の新しい機能を備えています。
+</p>
+<ul>
+  <li>一度のソケット接続で繰り返しドキュメント変換処理を実行する(KeepAlive)。</li>
+  <li>メッセージコードによる詳細な処理経過情報の取得。</li>
+  <li>サーバーのバージョンや機能に関する情報の取得。</li>
+  <li>サーバーが必要としたリソースをクライアントに要求する。</li>
+</ul>
+<h3>バージョン2.0.1の追加機能</h3>
+<p>
+新たに、複数の変換結果を結合する機能が追加されました。
+</p>
+
+<h2>基本的なデータ型</h2>
+
+<h3>数値とバイト列</h3>
+<p>CTIPはバイナリデータによって情報をやりとりします。
+2バイト以上のデータの固まりは、必ず上位のバイトから送られます。
+データの基本単位は次の4通りです。</p>
+<dl>
+	<dt>byte</dt>
+	<dd>符号つき1バイト整数</dd>
+	<dt>short</dt>
+	<dd>符号つき2バイト整数</dd>
+	<dt>int</dt>
+	<dd>符号つき4バイト整数</dd>
+	<dt>long</dt>
+	<dd>符号つき8バイト整数</dd>
+	<dt>data</dt>
+	<dd>符号なしバイト列</dd>
+</dl>
+
+<h3>文字列</h3>
+<p>文字列は次の形式で表します。</p>
+<div class="block"><span class="left">string := </span> <span
+	class="short">STRLEN</span> <span class="data">STRING</span></div>
+<p>ただし</p>
+<dl>
+	<dt>STRLEN(short)</dt>
+	<dd>文字列のバイト数。</dd>
+	<dt>STRING(data)</dt>
+	<dd>文字列。バイト数はSTRLENの通り。</dd>
+</dl>
+<p>文字列のキャラクタ・エンコーディングは、接続の際にクライアントが決定します。</p>
+
+<h3>パケット</h3>
+<p>クライアント-サーバー間でやり取りされるデータは適当な大きさのパケットを単位として
+送られます。各パケットは次の形式のバイト列です。</p>
+<div class="block"><span class="left">packet :=</span> <span
+	class="int">PAYLOAD</span> <span class="byte">TYPE</span> <span
+	class="data">(SPECIFIC)</span></div>
+<p>ただし</p>
+<dl>
+	<dt>PAYLOAD(int)</dt>
+	<dd>パケットの大きさで、PAYLOAD自身の4バイトを除いた全体のバイト数です。</dd>
+	<dt>TYPE(byte)</dt>
+	<dd>パケットの型です。</dd>
+	<dt>(SPECIFIC)</dt>
+	<dd>この部分はパケットの型により異なります。</dd>
+</dl>
+
+<h2>接続</h2>
+<p>ドライバがサーバーにTCP接続した後、
+プロトコルのバージョンとキャラクタ・エンコーディングをサーバーに知らせるために、
+次のメッセージを送ります。</p>
+<pre>
+"CTIP/2.0" " " ENCODING "\n"
+</pre>
+<p>ENCODINGは以降の通信でstringに使うキャラクタ・エンコーディング名です。</p>
+<p>例) UTF-8キャラクタ・エンコーディングを用いる場合、ドライバは次のメッセージを送ります。</p>
+<pre>
+"CTIP/2.0 UTF-8\n"
+</pre>
+<p>サーバーがプロトコルをサポートしない場合は、直ちに接続が切断されます。
+プロトコルをサポートする 場合は、認証状態になります。</p>
+
+<h2>認証</h2>
+<p>接続後、クライアントはサーバーに認証情報を送る必要があります。
+認証情報は以下の形式です。</p>
+<pre>
+"PLAIN:" USER " " PASSWORD "\n"
+</pre>
+<p>USERはユーザー名で、PASSWORDはパスワードです。例えばユーザー名"user"、
+パスワード"password"で認証する場合は次の1行を送ります。</p>
+<pre>
+PLAIN: user password
+</pre>
+<p>認証に成功した場合は、サーバーは<tt>"OK \n"</tt>を返します。 
+失敗した場合は<tt>"NG \n"</tt>を返し、直ちに接続を切断します。
+</p>
+<p>認証の完了後、クライアントからバイナリ形式のパケットを送出することにより、
+ サーバー側に各種操作を要求することが出来ます。</p>
+
+<h2>パケットの一覧</h2>
+<p>以下は各パケットの概要と、状態遷移表です。 
+クライアントから送るパケットには"cXX"、 サーバーから送るパケットには"sXX"、
+という名前を付けています。 XXはTYPEの部分の16進数表記です。</p>
+<h3>クライアントからサーバーに送られるパケット</h3>
+<table>
+	<thead>
+		<tr>
+			<th>TYPE</th>
+			<th>SPECIFIC</th>
+			<th>処理</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>c01</td>
+			<td>NAME(string) VALUE(string)</td>
+			<td>プロパティの送信</td>
+		</tr>
+		<tr>
+			<td>c02</td>
+			<td>URI(string) MIME_TYPE(string) ENCODING(string) LENGTH(long)</td>
+			<td>メインドキュメントの開始を通知</td>
+		</tr>
+		<tr>
+			<td>c03</td>
+			<td>URI(string)</td>
+			<td>メインドキュメントの変換を要求</td>
+		</tr>
+		<tr>
+			<td>c04</td>
+			<td>MODE(byte)</td>
+			<td>サーバーからリソースを要求するモードに切り替え</td>
+		</tr>
+		<tr>
+			<td>c05</td>
+			<td>MODE(byte)</td>
+			<td>複数の変換結果を後で結合するモードに切り替え</td>
+		</tr>
+		<tr>
+			<td>c11</td>
+			<td>DATA(data)</td>
+			<td>データ</td>
+		</tr>
+		<tr>
+			<td>c21</td>
+			<td>URI(string) MIME_TYPE(string) ENCODING(string) LENGTH(long)</td>
+			<td>リソースの開始を通知</td>
+		</tr>
+		<tr>
+			<td>c22</td>
+			<td>URI(string)</td>
+			<td>リソースの不存在を通知</td>
+		</tr>
+		<tr>
+			<td>c31</td>
+			<td>なし</td>
+			<td>データの終了</td>
+		</tr>
+		<tr>
+			<td>c32</td>
+			<td>MODE(byte)</td>
+			<td>中断</td>
+		</tr>
+		<tr>
+			<td>c33</td>
+			<td>なし</td>
+			<td>結合</td>
+		</tr>
+		<tr>
+			<td>c41</td>
+			<td>なし</td>
+			<td>リセット</td>
+		</tr>
+		<tr>
+			<td>c42</td>
+			<td>なし</td>
+			<td>切断</td>
+		</tr>
+		<tr>
+			<td>c51</td>
+			<td>URI(string)</td>
+			<td>サーバー情報の問い合わせ</td>
+		</tr>
+	</tbody>
+</table>
+<h3>サーバーからクライアントに送られるパケット</h3>
+<table>
+	<thead>
+		<tr>
+			<th>TYPE</th>
+			<th>SPECIFIC</th>
+			<th>処理</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>s01</td>
+			<td>URI(string) MIME_TYPE(string) ENCODING(string) LENGTH(long)</td>
+			<td>データの開始</td>
+		</tr>
+		<tr>
+			<td>s11</td>
+			<td>BLOCK_ID(int) DATA(data)</td>
+			<td>ブロックデータ</td>
+		</tr>
+		<tr>
+			<td>s12</td>
+			<td>なし</td>
+			<td>ブロックの追加</td>
+		</tr>
+		<tr>
+			<td>s13</td>
+			<td>ANCHOR_ID(int)</td>
+			<td>ブロックの挿入</td>
+		</tr>
+		<tr>
+			<td>s14</td>
+			<td>CODE(short) MESSAGE(string) ARGn(string)</td>
+			<td>メッセージ</td>
+		</tr>
+		<tr>
+			<td>s15</td>
+			<td>LENGTH(long)</td>
+			<td>メインドキュメントのバイト数</td>
+		</tr>
+		<tr>
+			<td>s16</td>
+			<td>READ(long)</td>
+			<td>メインドキュメントの読み込み済みバイト数</td>
+		</tr>
+		<tr>
+			<td>s17</td>
+			<td>DATA(data)</td>
+			<td>データ</td>
+		</tr>
+		<tr>
+			<td>s18</td>
+			<td>BLOCK_ID(int)</td>
+			<td>ブロックのクローズ</td>
+		</tr>
+		<tr>
+			<td>s21</td>
+			<td>URI(string)</td>
+			<td>リソースの要求</td>
+		</tr>
+		<tr>
+			<td>s31</td>
+			<td>なし</td>
+			<td>データの終了</td>
+		</tr>
+		<tr>
+			<td>s32</td>
+			<td>MODE(byte) CODE(short) MESSAGE(string) ARGn(string)</td>
+			<td>処理の中断</td>
+		</tr>
+	</tbody>
+</table>
+
+<h2>状態遷移表</h2>
+<p>横軸はパケットの種類、縦軸は状態、各マス目の数値は遷移先の状態です。
+空欄の部分では、パケットが無視され、状態の変化はありません。</p>
+<table border="0">
+<thead> 
+<tr>
+<th colspan="2">&#8595;状態 | パケット&#8594;</th>
+<td>c01</td>
+<td>c02</td>
+<td>c03</td>
+<td>c04</td>
+<td>c05</td>
+<td>c11</td>
+<td>c21</td>
+<td>c22</td>
+<td>c31</td>
+<td>c32</td>
+<td>c33</td>
+<td>c41</td>
+<td>c42</td>
+<td>c51</td>
+</tr>
+</thead> 
+<tbody>
+<tr>
+<th>0</th> <th>初期状態</th>
+<td>0</td>
+<td>3/8<sup>*1</sup></td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>&#xA0;</td>
+<td>2</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>0</td>
+<td>切断</td>
+<td>1</td>
+</tr>
+<tr>
+<th>1</th> <th>サーバー情報取得</th>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+</tr>
+<tr>
+<th>2</th> <th>リソース送信</th>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>2</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>0</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+</tr>
+<tr>
+<th>3</th> <th>メインドキュメント送信</th>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>2</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>4</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+</tr>
+<tr>
+<th>4</th> <th>サーバーからのリソース要求受信</th>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>4</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+</tr>
+<tr>
+<th>5</th> <th>要求されたリソース存否判定</th>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>6</td>
+<td>4</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+</tr>
+<tr>
+<th>6</th> <th>要求されたリソース送信</th>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>6</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>4</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+</tr>
+<tr>
+<th>7</th> <th>メインドキュメント変換結果受信</th>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td><br /></td>
+<td><br /></td>
+<td>&#xA0;</td>
+<td>7</td>
+<td>7</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+</tr>
+<tr>
+<th>8</th> <th>メインドキュメントのパイプライン変換</th>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>8</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>7</td>
+<td>7</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+</tr>
+</tbody>
+</table>
+<table border="0">
+<thead> 
+<tr>
+<th colspan="2">&#8595;状態 | パケット&#8594;</th>
+<td>s01</td>
+<td>s11</td>
+<td>s12</td>
+<td>s13</td>
+<td>s14</td>
+<td>s15</td>
+<td>s16</td>
+<td>s17</td>
+<td>s18</td>
+<td>s21</td>
+<td>s31</td>
+<td>s32</td>
+</tr>
+</thead> 
+<tbody>
+<tr>
+<th>0</th> <th>初期状態</th>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+</tr>
+<tr>
+<th>1</th> <th>サーバー情報取得</th>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>1</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>0</td>
+<td>&#xA0;</td>
+</tr>
+<tr>
+<th>2</th> <th>リソース送信</th>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+</tr>
+<tr>
+<th>3</th> <th>メインドキュメント送信</th>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+</tr>
+<tr>
+<th>4</th> <th>サーバーからのリソース要求受信</th>
+<td>4<sup>*2</sup></td>
+<td>4<sup>*2</sup></td>
+<td>4<sup>*2</sup></td>
+<td>4<sup>*2</sup></td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4<sup>*2</sup></td>
+<td>4<sup>*2</sup></td>
+<td>5</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<th>5</th> <th>要求されたリソース存否判定</th>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+</tr>
+<tr>
+<th>6</th> <th>要求されたリソース送信</th>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+<td>&#xA0;</td>
+</tr>
+<tr>
+<th>7</th> <th>メインドキュメント変換結果受信</th>
+<td>7<sup>*2</sup></td>
+<td>7<sup>*2</sup></td>
+<td>7<sup>*2</sup></td>
+<td>7<sup>*2</sup></td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>7<sup>*2</sup></td>
+<td>7<sup>*2</sup></td>
+<td><br /></td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<th>8</th> <th>メインドキュメントのパイプライン変換</th>
+<td>8<sup>*2</sup></td>
+<td>8<sup>*2</sup></td>
+<td>8<sup>*2</sup></td>
+<td>8<sup>*2</sup></td>
+<td>8</td>
+<td>8</td>
+<td>8</td>
+<td>8<sup>*2</sup></td>
+<td>8<sup>*2</sup></td>
+<td>&#xA0;</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p><sup>*1</sup> c04によりサーバーからリソースを要求するモードになっている場合は3, それ以外は8に遷移します。</p>
+<p><sup>*2</sup> これらのパケットには送られる順序があります。
+<a href="#build">クライアント側でのデータの構築</a>を参照してください。</p>
+
+<h2>各状態の詳細</h2>
+<h3>初期状態</h3>
+<p>初期状態では、次のいずれかの操作を行うことが出来ます。</p>
+<ul>
+	<li>プロパティの送信(c01)</li>
+	<li>リソースの開始を通知(c21)</li>
+	<li>サーバーからリソースを要求するモードに切り替え(c04)</li>
+	<li>メインドキュメントの開始を通知(c02)</li>
+	<li>メインドキュメントの変換を要求(c03)</li>
+	<li>リセット(c41)</li>
+	<li>切断(c42)</li>
+	<li>サーバー情報の問い合わせ(c51)</li>
+</ul>
+<h4>プロパティの送信</h4>
+<p>プロパティを送信(c01)することで、メインドキュメントの変換処理等の、以降のサーバーの動作を変える事が出来ます。
+プロパティは名前と値の文字列のペアで、名前と値の組み合わせの意味はサーバーに依存します。</p>
+<h4>リソースの開始を通知</h4>
+<p>リソースの開始を通知(c21)することで、リソース送信状態に切り替わり、クライアント側からサーバーにデータを送ることが出来ます。
+リソースは、メインドキュメントから参照されるデータです。例えば、HTML文書中のIMG要素から参照する画像等です。
+</p>
+<h4>サーバーからリソースを要求するモードに切り替え</h4>
+<p>サーバーからリソースを要求するモードに切り替える(c04)ことで、ドキュメントから参照されているリソースの送信要求をサーバーから受けられるようになります。
+このモードは、ドキュメントの内容を解析しなければ必要なリソースが分からないような状況で有効です。</p>
+<h4>メインドキュメントの開始を通知または変換を要求</h4>
+<p>変換対象となるメインのドキュメントは、クライアントから送信する方法(c02)と、 サーバー側から取得する方法(c03)の２種類があります。
+前者の方法では、ドキュメントの送信と変換を並行して行うことが出来、後者の方法ではクライアントが指定したアドレスにサーバーがアクセスします。
+後者の方法ではメインのドキュメントをリソースとして事前に送り、後でそのリソースをメインドキュメントとして使用することも出来ます。
+</p>
+<p>ただし、サーバーからリソースを要求するモードでは、必要なリソースの要求とドキュメントの変換処理はクライアントから送られるドキュメントの全体を受信した後に始まります。
+従って、ドキュメントの送信と変換は並行しては行われません。</p>
+<h4>複数の変換結果を結合する</h4>
+<p>
+通常は、メインドキュメントの開始(c02)から終了(c31)、あるいはメインドキュメントの変換を要求(c03)した時点で、
+変換結果が最後までクライアントに送信されますが、複数の変換結果を結合するモードに切り替える(c05)ことで、
+明示的に結合が要求(c33)されるまで最終的な変換結果を出さず、複数の変換があれば、その結果を結合するようにします。
+</p>
+<p>
+例えば、PDFへの変換であれば通常は別のソースは別のPDFとして返されるのに対し、
+結果を結合すると、複数のソースが連結された１つのPDFとして返されます。
+</p>
+<h4>サーバー側でメインドキュメントを取得する</h4>
+<p>サーバー側でメインドキュメントを取得する場合、クライアントはドキュメントのURIを送るだけです(c03)。</p>
+<h4>KeepAliveとリセット</h4>
+<p>ドキュメントの変換を同じ接続で続けて行うと、設定したプロパティと、送信したリソース（事前に送信したものと、サーバーの要求により送信したものも含む）は再利用されます。
+そのため、同じ設定やリソースを共有する複数のドキュメントの変換が高速に行えます。
+サーバーからリソースを要求するモードに切り替えていた場合は、そのモードも維持されます。</p>
+<p>
+リセット(c41)を行うと、接続を維持したまま、全ての状態がクリアされ、接続直後と同じ状態に戻ります。
+</p>
+<h4>切断</h4>
+<p>クライアントが切断(c42)を要求すると、サーバー側からソケットが切断されます。</p>
+
+<h3>サーバー情報取得</h3>
+<p>サーバー情報の問い合わせ(c51)により、サーバー側のソフトウェアの種類やバージョンを知ることができます。</p>
+<p>受け取ることができるデータの詳細は<a href="http://sourceforge.jp/projects/copper/wiki/CTIP2.0%E3%81%AE%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E6%83%85%E5%A0%B1">サーバー情報のURIと内容¶</a>を参照してください。</p>
+<p>サーバー情報の取得を要求した場合、サーバーからのデータは複数のデータパケット(s17)によって送られ、
+データの終了パケット(s31)によって終了します。クライアント側でデータパケットのDATAを連結したものがサーバー情報です。</p>
+
+<h3>リソース送信</h3>
+<p>リソースの送信は、リソースの開始パケット(c21)によって開始し、
+クライアントからのデータは複数のデータパケット(c11)によって送られ、
+データの終了パケット(c31)によって終了します。 
+データパケットのDATAを連結したものがサーバー側に記録されるリソースとなります。</p>
+
+<h3>メインドキュメント送信</h3>
+<p>クライアントからメインドキュメントのデータを送る場合は、メインドキュメントの開始を通知(c02)し、データの送信を開始します。
+複数のデータパケット(c11)によって送り、 データの終了パケット(c31)により終了します。
+サーバーからリソースを要求するモードでない場合は、クライアントからのメインドキュメントのデータを送信している最中に、
+サーバーがクライアントにデータを送ることがあります。
+</p>
+
+<h4>処理の中断</h4>
+<p>クライアントは、常にサーバー側に処理を中断するように要求することができます。
+処理の中断(c32)は生成済みのデータを出力して中断する方法と、即時中断する方法の２種類があります。
+前者ではサーバー側はなるべくきりのよいところまで処理を続けます。 即時中断する場合は、文字どおり強制的にサーバー側の処理を中断します。
+どちらの場合も、途中までのページまでしか読み込めないような中途半端なデータや、
+そもそも見ることが出来ない不正なデータが生成されてしまう可能性がありますが、 その可能性は後者の方がずっと高くなります。
+どの状態かは、サーバーからデータの終了(s31)が通知されるか、処理の中断(s32)のパケットのMODEにより判別することができます。</p>
+
+<h3>サーバーからのリソース要求受信</h3>
+<p>
+サーバーからリソースを要求するモードでは、クライアントがメインドキュメントのURIを送った後、
+またはメインドキュメントのデータを送り終わった後に、サーバーがリソースの送信をクライアントに要求します(s21)。 
+リソースの要求はサーバー側の処理結果の送信に混じって行われますが、サーバーがリソースを要求して、
+クライアントが要求したリソースを送り終えるまでは、サーバーが処理結果を送ることはありません。
+クライアント側のリソース送信の手順は、リソース不存在の通知(c22)を除いては、事前にリソースを送る場合と同じです。
+</p>
+
+<h3>要求されたリソース存否判定</h3>
+<p>サーバーからリソースが要求された場合は、リソースを送信するか(c21)、リソースが存在しないことを通知(c22)することができます。</p>
+
+<h3>要求されたリソース送信</h3>
+<p>サーバーから要求されたリソースを送信する場合の手順は、事前にリソースを送信する場合と同じです。</p>
+
+<h3 id="build">メインドキュメント変換結果受信</h3>
+<p>サーバーがクライアントにデータを送信する方法は２通りあります。
+１つ目はデータパケット(s17)による単純な方法で、クライアントはデータパケットのDATAを連結するだけです。</p>
+<p>２つ目は断片化されたデータを構築する方法で、
+サーバーはブロックの追加パケット、ブロックの挿入パケット、メッセージパケット、ブロックデータパケットを繰り返しクライアントに送ります。
+サーバー側からのデータの送信は、サーバ側からのデータの終了(s31), 処理の中断(s32)のいずれかのパケットの送信をもって終了します。</p>
+<p>どちらの方法かは、最初にクライアントに送られるパケットがデータパケット(s17)であるか、
+ブロックの追加パケット(s12)であるかどうかで判別できます。</p>
+<p>
+後者の場合、クライアントはサーバーの指示に従って、クライアント側のディスク上あるいはメモリ空間にIDが割り付けられた「ブロック」の列を生成します。
+データパケットはデータと一緒にブロックのID(BLOCK_ID)を含んでおり、クライアントはそのブロックにデータを追加します。</p>
+<p>ブロックのIDは、最初の値が0であるカウンタをクライアント側に持つことにより連番で生成します。</p>
+
+<h4>ブロックの追加(s12)</h4>
+<p>断片化されたデータをサーバーから送る場合は、最初に必ずブロックの追加パケットが送られます。
+追加パケットはクライアント側で現在のカウンタのIDを値とするブロックを列の末尾に生成します。 その後、カウンタの値を1つ増加させます。</p>
+<h4>ブロックの挿入(s13)</h4>
+<p>ブロックの挿入パケットはクライアント側で現在のカウンタのIDを値とするブロックを、
+ANCHOR_IDで示されるブロックの直前に生成します。 その後、カウンタの値を1つ増加させます。</p>
+<h4>ブロックデータ(s11)</h4>
+<p>ブロックデータパケットを受け取ったクライアントはBLOCK_IDで示されるブロックの末尾にDATAを追加します。</p>
+
+<h4>メッセージ(s14)</h4>
+<p>処理中の各種情報やエラーメッセージが送られます。
+詳細は<a href="#message-code">メッセージコードの説明</a>を参照してください。</p>
+<h4>メインドキュメントの読み込み状況(s15, s16)</h4>
+<p>処理の進行状況を確認しやすくするため、メインドキュメントのサイズ(s15)と読み込み済みバイト数(s16)がクライアントに通知されます。
+これらは通知されないこともありますし、通知のタイミングも不定期です。</p>
+
+<h4>データの構築</h4>
+<p>サーバーとの通信が終了した後、クライアントはブロックの列を順に結合し、完成されたデータとします。</p>
+
+<h3>メインドキュメントのパイプライン変換</h3>
+<p>
+クライアントからメインドキュメントを送信(c02)する場合、サーバーからリソースを要求するモードでなければ、ドキュメントの送信と構築が並行して行われます。
+このとき、クライアントはメインドキュメントの送信とメインドキュメント変換結果受信を同時に行う必要があります。
+そのため、クライアントはノンブロッキングI/Oか、マルチスレッドのいずれかの手段で実装される必要があります。
+</p>
+
+<h2>クライアントからサーバーに送られるパケットの詳細</h2>
+
+<h3>c01 プロパティの送信</h3>
+<p>サーバーの処理方法を指定するために、名前と値のペアで表現されるプロパティです。</p>
+<div class="block"><span class="left">c01 :=</span> <span
+	class="int">PAYLOAD</span> <span class="byte">0x01</span> <span
+	class="string">NAME</span> <span class="string">VALUE</span></div>
+<p>ただし</p>
+<dl>
+	<dt>NAME(string)</dt>
+	<dd>プロパティの名前</dd>
+	<dt>VALUE(string)</dt>
+	<dd>プロパティの値</dd>
+</dl>
+
+<h3>c02 メインドキュメントの開始を通知</h3>
+<p>メインドキュメントの本体の開始を通知します。</p>
+<div class="block"><span class="left">c02 :=</span> <span
+	class="int">PAYLOAD</span> <span class="byte">0x03</span> <span
+	class="string">URI</span> <span class="string">MIME_TYPE</span> <span
+	class="string">ENCODING</span> <span class="long">LENGTH</span></div>
+<p>ただし</p>
+<dl>
+	<dt>URI(string)</dt>
+	<dd>メインドキュメントの仮想URI</dd>
+	<dt>MIME_TYPE(string)</dt>
+	<dd>メインドキュメントのMIME型(サーバー側で自動判別する場合は空文字)</dd>
+	<dt>ENCODING(string)</dt>
+	<dd>メインドキュメントのキャラクタ・エンコーディング(サーバー側で自動判別または不確定な場合は空文字)</dd>
+	<dt>LENGTH(long)</dt>
+	<dd>メインドキュメントのファイルサイズ(不確定な場合は-1)</dd>
+</dl>
+
+<h3>c03 メインドキュメントの変換を要求</h3>
+<p>サーバー側でメインドキュメントを取得して変換する処理を開始します。</p>
+<div class="block"><span class="left">c03 :=</span> <span
+	class="int">PAYLOAD</span> <span class="byte">0x04</span> <span
+	class="string">URI</span></div>
+<p>ただし</p>
+<dl>
+	<dt>URI(string)</dt>
+	<dd>ドキュメントのURI</dd>
+</dl>
+
+<h3>c04 サーバーからリソースを要求する</h3>
+<p>サーバーからリソースを要求するモードを変更します。</p>
+<div class="block"><span class="left">c04 :=</span> <span
+	class="int">PAYLOAD</span> <span class="byte">0x04</span> <span class="byte">MODE</span></div>
+<p>だたし</p>
+<dl>
+	<dt>MODE(byte)</dt>
+	<dd>0=サーバーからリソースを要求しない, 1=サーバからリソースを要求する</dd>
+</dl>
+
+<h3>c05 複数の出力結果を結合する</h3>
+<p>複数の出力結果を結合するモードを変更します。</p>
+<div class="block"><span class="left">c05 :=</span> <span
+	class="int">PAYLOAD</span> <span class="byte">0x05</span> <span class="byte">MODE</span></div>
+<p>だたし</p>
+<dl>
+	<dt>MODE(byte)</dt>
+	<dd>0=結果を返還の都度に返す, 1=結合(c33)が要求されたときだけ全体の結果を結合して返す</dd>
+</dl>
+
+<h3>c11 データパケット</h3>
+<p>クライアントから送るデータの断片です。</p>
+<div class="block"><span class="left">c11 :=</span> <span
+	class="int">PAYLOAD</span> <span class="byte">0x11</span> <span
+	class="data">DATA</span></div>
+<p>だたし</p>
+<dl>
+	<dt>DATA(data)</dt>
+	<dd>データの断片です。</dd>
+</dl>
+<p>DATAの大きさには制限があり、最大で8192バイトです。従ってパケット全体の 大きさは最大8193バイトです。</p>
+
+<h3>c21 要求されたリソースの開始</h3>
+<p>要求されたリソースの開始を通知します。</p>
+<div class="block"><span class="left">c21 :=</span> <span
+	class="int">PAYLOAD</span> <span class="byte">0x21</span> <span
+	class="string">URI</span> <span class="string">MIME_TYPE</span> <span
+	class="string">ENCODING</span> <span class="long">LENGTH</span></div>
+<p>ただし</p>
+<dl>
+	<dt>URI(string)</dt>
+	<dd>リソースの仮想URI</dd>
+	<dt>MIME_TYPE(string)</dt>
+	<dd>リソースのMIME型(サーバー側で自動判別する場合は空文字)</dd>
+	<dt>ENCODING(string)</dt>
+	<dd>リソースのキャラクタ・エンコーディング(サーバー側で自動判別または不確定な場合は空文字)</dd>
+	<dt>LENGTH(long)</dt>
+	<dd>リソースのファイルサイズ(不確定な場合は-1)</dd>
+</dl>
+
+<h3>c22 要求されたリソースの不存在通知</h3>
+<p>要求されたリソースのが存在しなかったことを通知します。</p>
+<div class="block"><span class="left">c22 :=</span> <span
+	class="int">PAYLOAD</span> <span class="byte">0x22</span> <span
+	class="string">URI</span></div>
+<p>ただし</p>
+<dl>
+	<dt>URI(string)</dt>
+	<dd>リソースのURI</dd>
+</dl>
+
+<h3>c31 データの終了</h3>
+<p>データの終了です。</p>
+<div class="block"><span class="left">c31 :=</span> <span
+	class="int">PAYLOAD</span> <span class="byte">0x31</span> <span
+	class="int">RESOURCE_ID</span></div>
+<p>だたし</p>
+<dl>
+	<dt>RESOURCE_ID(short)</dt>
+	<dd>リソースのID</dd>
+</dl>
+
+<h3>c32 中断</h3>
+<p>処理を中断することを要求します。</p>
+<div class="block"><span class="left">c32 :=</span> <span
+	class="int">PAYLOAD</span> <span class="byte">0x32</span> <span class="byte">MODE</span></div>
+<p>だたし</p>
+<dl>
+	<dt>MODE(byte)</dt>
+	<dd>0=生成済みのデータを出力して中断, 1=即時中断</dd>
+</dl>
+
+<h3>c33 結合</h3>
+<p>結果を結合します。</p>
+<div class="block"><span class="left">c33 :=</span> <span
+	class="int">PAYLOAD</span> <span class="byte">0x33</span></div>
+
+<h3>c41 リセット</h3>
+<p>設定済みのプロパティ、サーバーに送信済みのリソースをクリアします。</p>
+<div class="block"><span class="left">c41 :=</span> <span
+	class="int">PAYLOAD</span> <span class="byte">0x41</span></div>
+
+<h3>c42 切断</h3>
+<p>接続を切断します。</p>
+<div class="block"><span class="left">c42 :=</span> <span
+	class="int">PAYLOAD</span> <span class="byte">0x42</span></div>
+
+<h3>c51 サーバー情報の問い合わせ</h3>
+<p>サーバー情報の送信を要求します。</p>
+<div class="block"><span class="left">c51 :=</span> <span
+	class="int">PAYLOAD</span> <span class="byte">0x51</span> <span
+	class="string">URI</span></div>
+<p>ただし</p>
+<dl>
+	<dt>URI(string)</dt>
+	<dd>サーバー情報のURI</dd>
+</dl>
+
+<h2>サーバーからクライアントに送られるパケットの詳細</h2>
+
+<h3>s01 データの開始</h3>
+<p>データの開始をクライアントに通知します。</p>
+<div class="block"><span class="left">s01 :=</span> <span
+	class="int">PAYLOAD</span> <span class="byte">0x01</span> <span
+	class="string">URI</span> <span class="string">MIME_TYPE</span> <span
+	class="string">ENCODING</span> <span class="long">LENGTH</span></div>
+<p>ただし</p>
+<dl>
+	<dt>URI(string)</dt>
+	<dd>データの仮想URI</dd>
+	<dt>MIME_TYPE(string)</dt>
+	<dd>データのMIME型</dd>
+	<dt>ENCODING(string)</dt>
+	<dd>データのキャラクタ・エンコーディング(不確定な場合は空文字)</dd>
+	<dt>LENGTH(long)</dt>
+	<dd>データのファイルサイズ(不確定な場合は-1)</dd>
+</dl>
+
+<h3>s11 ブロックデータ</h3>
+<p>クライアント側のブロックにデータを追加します。</p>
+<div class="block"><span class="left">s11 :=</span> <span
+	class="int">PAYLOAD</span> <span class="byte">0x11</span> <span
+	class="int">BLOCK_ID</span> <span class="data">DATA</span></div>
+<p>だたし</p>
+<dl>
+	<dt>BLOCK_ID(int)</dt>
+	<dd>データを追加するブロックのID</dd>
+	<dt>DATA(data)</dt>
+	<dd>ブロックに追加するデータ</dd>
+</dl>
+
+<h3>s12 ブロックの追加</h3>
+<p>クライアント側にブロックを追加します。</p>
+<div class="block"><span class="left">s12 :=</span> <span
+	class="int">PAYLOAD</span> <span class="byte">0x12</span></div>
+
+<h3>s13 ブロックの挿入</h3>
+<p>クライアント側にブロックを挿入します。</p>
+<div class="block"><span class="left">s13 :=</span> <span
+	class="int">PAYLOAD</span> <span class="byte">0x13</span> <span
+	class="int">ANCHOR_ID</span></div>
+<p>だたし</p>
+<dl>
+	<dt>ANCHOR_ID(int)</dt>
+	<dd>挿入位置の直後にあるブロックの番号。</dd>
+</dl>
+
+<h3>s14 メッセージ</h3>
+<p>サーバーからクライアントに送られるエラー情報等のメッセージです。</p>
+<div class="block"><span class="left">s14 :=</span> <span
+	class="int">PAYLOAD</span> <span class="byte">0x14</span> <span
+	class="short">CODE</span> <span class="string">MESSAGE</span> <span class="string">ARG1</span> <span
+	class="string">ARG2</span>...</div>
+<p>だたし</p>
+<dl>
+	<dt>CODE(int)</dt>
+	<dd>メッセージコード</dd>
+	<dt>MESSAGE(string)</dt>
+	<dd>メッセージ</dd>
+	<dt>ARGn(string)</dt>
+	<dd>引数</dd>
+</dl>
+
+<h3>s15 メインドキュメントのバイト数</h3>
+<div class="block"><span class="left">s15 :=</span> <span
+	class="int">PAYLOAD</span> <span class="byte">0x15</span> <span
+	class="long">LENGTH</span></div>
+<p>だたし</p>
+<dl>
+	<dt>LENGTH("long")</dt>
+	<dd>サーバー側で検出した元文書のサイズ(バイト数)</dd>
+</dl>
+
+<h3>s16 メインドキュメントの読み込み済みバイト数</h3>
+<div class="block"><span class="left">s16 :=</span> <span
+	class="int">PAYLOAD</span> <span class="byte">0x16</span> <span
+	class="long">READ</span></div>
+<p>だたし</p>
+<dl>
+	<dt>READ("long")</dt>
+	<dd>サーバー側で処理済のデータ(バイト数)</dd>
+</dl>
+
+<h3>s17 データパケット</h3>
+<p>クライアント側にデータを送ります。</p>
+<div class="block"><span class="left">s17 :=</span> <span
+	class="int">PAYLOAD</span> <span class="byte">0x17</span> <span
+	class="data">DATA</span></div>
+<p>だたし</p>
+<dl>
+	<dt>DATA(data)</dt>
+	<dd>送られたデータ</dd>
+</dl>
+
+<h3>s21 リソースの要求</h3>
+<p>クライアントにリソースの送信を要求します。</p>
+<div class="block"><span class="left">s21 :=</span> <span
+	class="int">PAYLOAD</span> <span class="byte">0x21</span> <span
+	class="string">URI</span></div>
+<p>だたし</p>
+<dl>
+	<dt>URI(string)</dt>
+	<dd>リソースのURI</dd>
+</dl>
+
+<h3>s31 データの終了</h3>
+<p>結果の送信を終了します。</p>
+<div class="block"><span class="left">s31 :=</span> <span
+	class="int">PAYLOAD</span> <span class="byte">0x31</span></div>
+
+<h3>s32 中断</h3>
+<p>処理を中断します。</p>
+<div class="block"><span class="left">s32 :=</span> <span
+	class="int">PAYLOAD</span> <span class="byte">0x32</span> <span class="byte">MODE</span> <span
+	class="short">CODE</span> <span class="string">MESSAGE</span> <span class="string">ARG1</span> <span
+	class="string">ARG2</span>...</div>
+<p>だたし</p>
+<dl>
+	<dt>MODE(byte)</dt>
+	<dd>0=データが利用可能, 1=データを利用不可</dd>
+	<dt>CODE(int)</dt>
+	<dd>メッセージコード</dd>
+	<dt>MESSAGE(string)</dt>
+	<dd>メッセージ</dd>
+	<dt>ARGn(string)</dt>
+	<dd>引数</dd>
+</dl>
+
+<h3 id="messages">メッセージコード</h3>
+<p>
+16ビットのメッセージコードは、次の16進数表記によりクラス分けします。
+Xの部分には0～Fの任意の値が入ります。
+</p>
+<dl>
+  <dt>1XXX</dt>
+  <dd>処理情報。</dd>
+  <dt>2XXX</dt>
+  <dd>警告メッセージ。通常の運用でも発生する可能性のある軽微なエラーを示すもので、処理が続行されます。</dd>
+  <dt>3XXX</dt>
+  <dd>エラーメッセージ。アプリケーション等の問題によるエラーで、処理が中断されます。</dd>
+  <dt>4XXX</dt>
+  <dd>深刻なエラー。ドキュメント変換サーバー自体の問題によるもので、処理が中断されます。</dd>
+  <dt>X00X</dt>
+  <dd>CTIPインターフェースのためのコード。</dd>
+  <dt>X8XX～XFXX</dt>
+  <dd>ドキュメント変換サーバーに依存するコード。</dd>
+</dl>
+<p>
+CTIPインターフェースのメッセージコードは次のとおりです。
+</p>
+<table class="spec">
+  <thead>
+    <tr>
+      <th>コード</th>
+      <th>値</th>
+      <th>説明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1001</td>
+      <td class="nowrap"></td>
+      <td>abort等により、正常に処理が中断された。</td>
+    </tr>
+    <tr>
+      <td>2001</td>
+      <td class="nowrap">リソースのURI(string)</td>
+      <td>ドキュメントから参照されたリソースURIの形式の不正。</td>
+    </tr>
+    <tr>
+      <td>2002</td>
+      <td class="nowrap">ベースURI(string)</td>
+      <td>文書のベースURIの形式に不正がある。</td>
+    </tr>
+    <tr>
+      <td>3001</td>
+      <td class="nowrap">ドキュメントのURI(string)</td>
+      <td>メインドキュメントのURIの形式に不正がある。</td>
+    </tr>
+    <tr>
+      <td>3002</td>
+      <td class="nowrap">エラーメッセージ(string)</td>
+      <td>通信エラー。</td>
+    </tr>
+    <tr>
+      <td>4001</td>
+      <td class="nowrap">エラーメッセージ(string)</td>
+      <td>予期しないエラー。</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>ライセンス</h2>
+<pre>
+Copyright (c) 2012 座間ソフト
+
+Apache License Version 2.0に基づいてライセンスされます。
+あなたがこのファイルを使用するためには、本ライセンスに従わなければなりません。
+本ライセンスのコピーは下記の場所から入手できます。
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+適用される法律または書面での同意によって命じられない限り、
+本ライセンスに基づいて頒布されるソフトウェアは、明示黙示を問わず、
+いかなる保証も条件もなしに「現状のまま」頒布されます。
+本ライセンスでの権利と制限を規定した文言については、本ライセンスを参照してください。 
+
+Copyright (c) 2012 Zamasoft.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+</pre>
+</body>
+</html>

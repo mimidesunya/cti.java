@@ -1,9 +1,16 @@
+apply plugin: 'maven-publish'
+
 dependencies {
     api project(':cti-ant')
     api project(':cti-cli')
     api project(':cti-driver-ctip')
     api project(':cti-driver-rest')
     api project(':cti-if')
+}
+
+java {
+    withSourcesJar()
+    withJavadocJar()
 }
 
 // This is the "fat jar" equivalent to Maven's jar-with-dependencies
@@ -71,9 +78,13 @@ build.dependsOn fullJar, minJar
 
 publishing {
     publications {
+            artifact sourcesJar
+            artifact javadocJar
         mavenJava(MavenPublication) {
             artifact fullJar
-            artifact minJar
+            artifact(minJar) {
+                classifier = 'min'
+            }
         }
     }
 }

@@ -68,3 +68,12 @@ task minJar(type: Jar) {
 }
 
 build.dependsOn fullJar, minJar
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifact fullJar
+            artifact minJar
+        }
+    }
+}

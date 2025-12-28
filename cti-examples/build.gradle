@@ -4,3 +4,16 @@ dependencies {
     compileOnly 'javax.servlet:javax.servlet-api:4.0.1'
     compileOnly 'jakarta.servlet:jakarta.servlet-api:5.0.0'
 }
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifact jar {
+                enabled = false
+            }
+        }
+    }
+}
+// Or more simply:
+tasks.withType(PublishToMavenRepository) { enabled = false }
+tasks.withType(PublishToMavenLocal) { enabled = false }

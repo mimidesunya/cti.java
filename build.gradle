@@ -9,13 +9,24 @@ allprojects {
 
 subprojects {
     apply plugin: 'java-library'
+    apply plugin: 'maven-publish'
 
     java {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+        withSourcesJar()
+        withJavadocJar()
     }
 
     tasks.withType(JavaCompile) {
         options.encoding = 'UTF-8'
+    }
+
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                from components.java
+            }
+        }
     }
 }
